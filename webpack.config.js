@@ -1,14 +1,15 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { WebpackFilemanager } = require('filemanager-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     'single-spa.config': './single-spa.config.js'
   },
   output: {
-    publicPath: '/dist/',
+    publicPath: './',
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
@@ -36,16 +37,28 @@ module.exports = {
   resolve: {
     alias: {
       vue: 'vue/dist/vue.js'
-    },
-    modules: [path.resolve(__dirname, 'node_modules')]
+    }
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new WebpackFilemanager({
+      events: {
+        start: {
+          del: ['./dist']
+        }
+      }
+    }),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+      filename: 'index.html',
+      minify: {
+        collapseWhitespace: true
+      }
+    }),
     new VueLoaderPlugin()
   ],
   devtool: 'source-map',
-  externals: [],
   devServer: {
+    contentBase: 'dist',
     historyApiFallback: true,
     open: true
   }

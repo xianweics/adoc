@@ -5,9 +5,9 @@ import './root.component.js';
 const angularLifecycles = singleSpaAngular({
   angular,
   function () {
-    return document.getElementById('angular');
+    return document.getElementById('angular-spa');
   },
-  mainAngularModule: 'angular-app',
+  mainAngularModule: 'angular-spa',
   template:'<root/>'
 });
 

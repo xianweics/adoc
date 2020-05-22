@@ -3,3 +3,4 @@ node_modules
 *.iml
 package-lock.json
 dist
+/src/react-ssr/server-dist/

@@ -7,10 +7,10 @@ export default class rootComponent extends React.Component {
 
   render () {
     return (
-      <div className={'content'}>
-        <h1>Hello from React</h1>
-        <a href="/vue">from vue to vue</a>
-      </div>
+      <>
+        <h1>Hello from React 16 spa</h1>
+        <a href="/vue-spa">from vue to vue</a>
+      </>
     );
   }
 }

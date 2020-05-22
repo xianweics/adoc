@@ -1,27 +1,23 @@
 import { registerApplication, start } from 'single-spa';
 
-function pathPrefix (...paths) {
-  return function (location) {
-    return paths.includes(location.pathname);
-  };
-}
+const pathPrefix = (...paths) => (location) => paths.includes(location.pathname);
 
 registerApplication(
-  'vue',
-  () => import('./src/vue/app.js'),
-  pathPrefix('/vue')
+  'vue-spa',
+  () => import('./src/vue-spa/index.js'),
+  pathPrefix('/vue-spa')
 );
 
 registerApplication(
-  'react',
-  () => import('./src/react/app.js'),
-  pathPrefix('/react', '/')
+  'react-spa',
+  () => import('./src/react-spa/index.js'),
+  pathPrefix('/react-spa', '/')
 );
 
 registerApplication(
-  'angular',
-  () => import ('./src/angular/app.js'),
-  pathPrefix('/angular')
+  'angular-spa',
+  () => import ('./src/angular-spa/index.js'),
+  pathPrefix('/angular-spa')
 );
 
 start();

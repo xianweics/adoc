@@ -2,7 +2,7 @@ import angular from 'angular';
 import template from './root.template.html';
 
 angular
-.module('angular-app',[])
+.module('angular-spa',[])
 .component('root', {
   template
 });

@@ -8,7 +8,7 @@ const reactLifecycles = singleSpaReact({
   ReactDOM,
   rootComponent,
   function () {
-    return document.getElementById("react")
+    return document.getElementById("react-spa")
   },
 });
 

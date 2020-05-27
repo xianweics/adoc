@@ -1,5 +1,5 @@
 {
-  "name": "mfe",
+  "name": "fullstack",
   "version": "1.0.1",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "serviceProducts:build": "babel service-product --watch --out-dir serviceProductsDist",
     "client:analysis": "cross-env NODE_ENV=production analysis=true webpack --progress --config build/webpack.build.js"
   },
-  "description": "This is a demo for micro-frontend",
+  "description": "micro-frontend + middleware + multi-service",
   "repository": {
     "type": "git",
     "url": "https://github.com/xianweics"

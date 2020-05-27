@@ -1,19 +1,19 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const { WebpackFilemanager } = require('filemanager-plugin');
 
-const { pathSrc, pathDest, publicPath } = require('./config');
+const { clientDest, projectRoot, publicPath, clientSrc } = require('./config');
+const { client: clientConfig } = require('../config');
 
 module.exports = {
   entry: {
-    'single-spa.config': pathSrc('../single-spa.config.js')
+    'single-spa-config': projectRoot('single-spa.config.js')
   },
   output: {
     publicPath: publicPath,
     filename: '[name].[hash:5].js',
-    path: pathDest(),
+    path: clientDest(),
     chunkFilename: '[name].[chunkhash:5].chunk.js'
   },
   module: {
@@ -80,10 +80,6 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-        test: /\.html$/,
-        use: ['html-loader']
       }
     ]
   },
@@ -91,8 +87,7 @@ module.exports = {
     extensions: ['.js', '.json', '.scss', '.less', '.css'],
     alias: {
       vue: 'vue/dist/vue.js',
-      '@root': pathSrc(),
-      '@public': pathSrc('public')
+      '@project': projectRoot()
     }
   },
   plugins: [
@@ -100,15 +95,16 @@ module.exports = {
       events: {
         start: {
           del: {
-            items: [pathDest()]
+            items: [clientDest()]
           }
         }
       }
     }),
     new HtmlWebpackPlugin({
-      template: pathSrc('../index.html'),
-      favicon: pathSrc('favicon.ico'),
-      filename: 'index.html',
+      template: clientSrc(clientConfig.entryHome),
+      favicon: clientSrc('favicon.ico'),
+      date: new Date().toUTCString(),
+      filename: clientConfig.outputHome,
       minify: {
         collapseWhitespace: true
       }

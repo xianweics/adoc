@@ -1,3 +1,5 @@
+const serviceUsers = 'serviceUsers';
+const serviceProducts = 'serviceProducts';
 const config = {
   sentry: {
     dsn: 'http://ff7764eb82a94a6dbf34182217a88106@localhost:9000/1',
@@ -12,15 +14,20 @@ const config = {
   middleware: {
     port: 3000,
     address: '127.0.0.1',
-    protocol: 'http'
+    protocol: 'http',
+    isHttps: false,
+    service: {
+      vue: serviceUsers,
+      react: serviceProducts
+    }
   },
   service: {
-    serviceUsers: {
+    [serviceUsers]: {
       port: 4000,
       address: '127.0.0.1',
       protocol: 'http'
     },
-    serviceProducts: {
+    [serviceProducts]: {
       port: 4001,
       address: '127.0.0.1',
       protocol: 'http'

@@ -1,8 +1,8 @@
-import KoaRouter from 'koa-router';
+const Router = require('@koa/router');
 import controller from '../controller';
 import logRecord from './logRecord';
 
-const router = new KoaRouter();
+const router = new Router();
 
 const routes = router.get('/products', controller.getProducts);
 

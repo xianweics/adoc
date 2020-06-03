@@ -3,13 +3,10 @@ import koaStatic from 'koa-static';
 import path from 'path';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import fs from 'fs';
-import bodyParser from 'koa-bodyparser';
 import { client as clientConfig, middleware as middlewareConfig, service as serviceConfig } from '../config';
 import { formatFullPath } from '../utils';
-
 const { destName, outputHome } = clientConfig;
 const app = new Koa();
-app.use(bodyParser());
 app.use(koaStatic(path.join(__dirname, '..', destName))); // 设置静态资源路径
 
 app.use(async (ctx, next) => {

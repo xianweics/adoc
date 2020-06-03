@@ -1,18 +1,14 @@
 import axios from 'axios';
-import { middleware } from '@project/config';
+import { middleware } from '@root/config';
+import { formatFullPath } from '@root/utils';
 
+const { protocol, address, port, service } = middleware;
 const request = axios.create({
-  baseURL: middleware.protocol + '://' + middleware.address + ':' + middleware.port + '/serviceUsers',
-  headers: {
-    post: {
-      'Content-Type': 'application/json; charset=UTF-8'
-    }
-  }
+  baseURL: formatFullPath({ protocol, address, port, subUrl: service.vue }),
   // withCredentials: true
 });
 
 request.interceptors.request.use(config => {
-  console.info(config);
   return config;
 }, e => {
   return Promise.reject(e);
@@ -20,14 +16,14 @@ request.interceptors.request.use(config => {
 
 request.interceptors.response.use(res => {
   let result = {};
-  try{
+  try {
     result = res.data.data;
-  }catch (e) {
+  } catch (e) {
     result = {};
   }
   return result;
 }, (e) => {
-  return Promise.reject(e);
+  return {};
 });
 
 export default request;

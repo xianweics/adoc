@@ -1,11 +1,6 @@
-import KoaRouter from 'koa-router';
+const Router = require('@koa/router');
 import controller from '../controller';
 import logRecord from './logRecord';
-
-const router = new KoaRouter();
-
-const routes = router.get('/users', controller.getUsers)
-  .get('/members', controller.getMembers);
 
 export default class Route {
   static init (app) {
@@ -14,6 +9,10 @@ export default class Route {
       console.info(`service get request url from client: ${ctx.url}`);
       await next();
     });
+    const router = new Router();
+    const routes = router.get('/users', controller.getUsers)
+      .del('/users/:id', controller.delUsers)
+      .post('/users', controller.addUsers);
     app.use(routes.routes());
   }
 }

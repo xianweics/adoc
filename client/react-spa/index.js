@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
 import rootComponent from './root.component.js';
 import * as Sentry from '@sentry/browser';
-import { sentry } from '@project/config';
+import { sentry } from '@root/config';
 
 sentry.open && Sentry.init({
   dsn: sentry.dsn

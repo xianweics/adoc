@@ -87,7 +87,7 @@ module.exports = {
     extensions: ['.js', '.json', '.scss', '.less', '.css'],
     alias: {
       vue: 'vue/dist/vue.js',
-      '@project': projectRoot()
+      '@root': projectRoot()
     }
   },
   plugins: [

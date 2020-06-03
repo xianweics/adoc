@@ -1,34 +1,36 @@
-// const query = require('../database/query');
-// const {getFavorite, addFavorite} = require('../database/sql');
+import database from '../database';
+
 export default {
-  getUsers: ctx => {
+  getUsers: async (ctx) => {
+    const data = await database('get', 'member');
+    return ctx.body = {
+      code: 200,
+      data: data
+    };
+  },
+  delUsers: async (ctx) => {
+    const data = await database('del','member', ctx.params.id);
+    let message = 'success';
+    if (!data) {
+      message = 'fail';
+    }
     return ctx.body = {
       code: 200,
       data: {
-        page: 1,
-        pageSize: 10,
-        total: 10,
-        data: [
-          {
-            id: 1,
-            name: 'test1'
-          },
-          {
-            id: 2,
-            name: 'test2'
-          }
-        ]
+        message
       }
     };
   },
-  getMembers: ctx => {
+  addUsers: async (ctx) => {
+    const data = await database('post', 'member', ctx.request.body);
+    let message = 'success';
+    if (!data) {
+      message = 'fail';
+    }
     return ctx.body = {
       code: 200,
       data: {
-        page: 1,
-        pageSize: 10,
-        total: 10,
-        data: []
+        message
       }
     };
   }

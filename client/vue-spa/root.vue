@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <h1>Hello from Vue 2 spa</h1>
+        <h1>Hello Vue 2 spa</h1>
         <div><img :src="imgSrc" width="100px"></div>
         <a href="/react-spa">from vue to react</a>
         <div class="input-group">
@@ -10,14 +10,17 @@
         <div class="btn-group">
             <button @click="getUsers">Get users list</button>
             <button @click="delUser" :disabled="activeId === 0">Delete user</button>
-            <button @click="addUser" >Add user</button>
+            <button @click="addUser">Add user</button>
         </div>
-        <table class="table" border="1px solid #eee">
+        <table class="table">
+            <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Age</th>
             </tr>
+            </thead>
+            <tbody>
             <template v-if="users.length > 0">
                 <tr v-for="item in users" @click="activeId = item.id" :class="{'active':item.id === activeId}">
                     <td>{{item.id}}</td>
@@ -30,12 +33,13 @@
                     <td colspan="3">Not data</td>
                 </tr>
             </template>
+            </tbody>
         </table>
     </div>
 </template>
 
 <script>
-  import src from './office365.png';
+  import src from '../office365.png';
 
   export default {
     data () {
@@ -56,7 +60,7 @@
         await this.$http.delete(`users/${this.activeId}`);
         this.getUsers();
       },
-      async addUser(){
+      async addUser () {
         await this.$http.post('users', {
           name: this.name,
           age: this.age
@@ -66,17 +70,3 @@
     }
   };
 </script>
-<style scoped>
-    .table {
-        line-height: 2;
-        font-size: 16px;
-        width: 100%;
-        table-layout: fixed;
-        border: 1px solid #eee;
-        border-collapse: collapse;
-
-        tr.active {
-            background: red;
-        }
-    }
-</style>

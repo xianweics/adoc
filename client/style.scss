@@ -63,5 +63,25 @@
     text-indent: 4px;
   }
 }
+.table {
+  line-height: 2;
+  font-size: 16px;
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid #eee;
+  border-collapse: collapse;
+
+  tr{
+    border-bottom: 1px solid #eee;
+    &.active {
+      background: red;
+    }
+  }
+  tbody{
+    tr:last-child{
+      border-bottom: none;
+    }
+  }
+}
 
 

@@ -2,9 +2,9 @@ import * as sql from './sql';
 
 const action = {
   member: {
-    get: (...args) => sql.getMembers(args),
-    del: (...args) => sql.delMember(args),
-    post: (...args) => sql.addMember(args)
+    get: ([args]) => sql.getMembers(args),
+    del: ([args]) => sql.delMember(args),
+    post: ([args]) => sql.addMember(args)
   }
 };
 

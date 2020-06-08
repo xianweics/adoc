@@ -6,7 +6,7 @@ export default class Route {
   static init (app) {
     logRecord.init(app);
     app.use(async (ctx, next) => {
-      console.info(`service get request url from client: ${ctx.url}`);
+      console.info(`service users get request url from client: ${ctx.url}`);
       await next();
     });
     const router = new Router();

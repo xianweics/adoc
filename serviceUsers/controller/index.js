@@ -4,7 +4,7 @@ import wrapperResponse from "./wrapperResponse";
 export default {
   getUsers: async (ctx) => {
     const data = await database('get', 'member');
-    return ctx.body = wrapperResponse({ code: 200, data });
+    ctx.body = wrapperResponse({ code: 200, data });
   },
   delUsers: async (ctx) => {
     const data = await database('del', 'member', ctx.params.id);
@@ -12,7 +12,7 @@ export default {
     if (!data) {
       message = 'fail';
     }
-    return ctx.body = wrapperResponse({ code: 200, data, message });
+    ctx.body = wrapperResponse({ code: 200, data, message });
   },
   addUsers: async (ctx) => {
     const data = await database('post', 'member', ctx.request.body);
@@ -20,6 +20,6 @@ export default {
     if (!data) {
       message = 'fail';
     }
-    return ctx.body = wrapperResponse({ code: 200, data, message });
+    ctx.body = wrapperResponse({ code: 200, data, message });
   }
 };

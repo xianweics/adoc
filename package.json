@@ -1,11 +1,13 @@
 {
   "name": "fullstack",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "run-p client:dev service:dev middleware:dev service:start middleware:start",
+    "dev": "run-p client:dev service:dev middleware:dev service:start middleware:start",
     "build": "run-p client:build middleware:build service:build",
+    "start": "run-p client:start service:start middleware:start",
     "client:dev": "webpack-dev-server --config build/webpack.dev.js --port 8089",
+    "client:start": "cd clientDist && http-server",
     "service:dev": "run-p -l serviceUsers:dev serviceProducts:dev",
     "service:start": "run-p -l serviceUsers:start serviceProducts:start",
     "middleware:dev": "babel middleware --watch --out-dir middlewareDist",
@@ -18,10 +20,10 @@
     "service:build": "run-p serviceUsers:build serviceProducts:build",
     "middleware:build": "babel middleware --out-dir middlewareDist",
     "serviceUsers:build": "babel serviceUsers --out-dir serviceUsersDist",
-    "serviceProducts:build": "babel serviceProducts --watch --out-dir serviceProductsDist",
+    "serviceProducts:build": "babel serviceProducts --out-dir serviceProductsDist",
     "client:analysis": "cross-env NODE_ENV=production analysis=true webpack --progress --config build/webpack.build.js"
   },
-  "description": "micro-frontend + middleware + multi-service",
+  "description": "micro-frontend + middleware + gateway + multi-service",
   "repository": {
     "type": "git",
     "url": "https://github.com/xianweics"
@@ -66,6 +68,7 @@
     "file-loader": "^6.0.0",
     "filemanager-plugin": "^2.3.3",
     "html-webpack-plugin": "^4.3.0",
+    "http-server": "^0.12.3",
     "less-loader": "^6.1.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",

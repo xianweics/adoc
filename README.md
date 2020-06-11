@@ -1,25 +1,25 @@
 # project
 
-## development
-```text
+## Development
+```
 npm install
 npm run dev
 ```
 
-## building
-```bazaar
+## Building
+```
 npm run build
 ```
 
-## deployment 
-```bazaar
+## Deployment 
+```
 npm run start
 ```
 
-## database
+## Database setting
 
 ### mysql
-```text
+```
 // serviceUser/database/config.js
 
 database: 'users',
@@ -29,7 +29,7 @@ port: '3306',
 host: 'localhost'
 ```
 
-### postgres 
+### postgres
 ```text
 // serviceProducts/database/config.js
 

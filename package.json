@@ -2,6 +2,12 @@
   "name": "fullstack",
   "version": "1.0.0",
   "main": "index.js",
+  "sideEffects": [
+    "*.scss",
+    "*.sass",
+    "*.css",
+    "*.less"
+  ],
   "scripts": {
     "dev": "run-p client:dev service:dev middleware:dev service:start middleware:start",
     "build": "run-p client:build middleware:build service:build",
@@ -31,6 +37,7 @@
   "dependencies": {
     "@koa/router": "^10.1.1",
     "axios": "^0.26.1",
+    "core-js": "3",
     "http-proxy-middleware": "^2.0.4",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",

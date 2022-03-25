@@ -1,7 +1,8 @@
+import React from 'react';
 import src from '../office365.png';
 import request from "./request";
 
-export default class rootComponent extends React.Component {
+export default class extends React.Component {
   state = {
     goodsList: [],
     activeId: 0,

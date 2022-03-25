@@ -109,6 +109,9 @@ module.exports = {
             items: [clientDest()]
           }
         }
+      },
+      options: {
+        cache: true
       }
     }),
     new HtmlWebpackPlugin({

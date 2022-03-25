@@ -15,6 +15,7 @@ specifiers:
   axios: ^0.26.1
   babel-loader: ^8.2.4
   compression-webpack-plugin: ^9.2.0
+  core-js: '3'
   cross-env: ^7.0.3
   css-loader: ^6.7.1
   filemanager-plugin: ^2.8.1
@@ -57,6 +58,7 @@ specifiers:
 dependencies:
   '@koa/router': 10.1.1
   axios: 0.26.1
+  core-js: 3.21.1
   http-proxy-middleware: 2.0.4
   koa: 2.13.4
   koa-bodyparser: 4.3.0
@@ -2446,6 +2448,11 @@ packages:
       browserslist: 4.20.2
       semver: 7.0.0
     dev: true
+
+  /core-js/3.21.1:
+    resolution: {integrity: sha512-FRq5b/VMrWlrmCzwRrpDYNxyHP9BcAZC+xHJaqTgIE5091ZV1NTmyh0sGOg5XqpnHvR0svdy0sv1gWA1zmhxig==}
+    requiresBuild: true
+    dev: false
 
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}

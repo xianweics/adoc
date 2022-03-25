@@ -1,4 +1,3 @@
-import React from 'react';
 import src from '../office365.png';
 import request from "./request";
 

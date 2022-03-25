@@ -12,8 +12,8 @@ const config = {
     outputHome: 'index.html'
   },
   middleware: {
-    port: 3000,
-    address: '127.0.0.1',
+    port: 2000,
+    address: '0.0.0.0',
     protocol: 'http',
     isHttps: false,
     service: {

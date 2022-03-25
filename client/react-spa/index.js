@@ -1,9 +1,9 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
 import rootComponent from './root.component.js';
 import * as Sentry from '@sentry/browser';
 import { sentry } from '@root/config';
+import React from "react";
 
 sentry.open && Sentry.init({
   dsn: sentry.dsn

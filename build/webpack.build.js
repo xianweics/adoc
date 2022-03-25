@@ -1,7 +1,6 @@
-// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const webpackBase = require('./webpack.base');
 const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 const { projectRoot, clientDest } = require('./config');
@@ -11,7 +10,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 const config = {
   mode: 'production',
-  devtool: 'source-map',
+  // devtool: 'source-map',
   plugins: [
     new CompressionPlugin()
   ],

@@ -1,8 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const { WebpackFilemanager } = require('filemanager-plugin');
-
+const { VueLoaderPlugin } = require('vue-loader');
 const { clientDest, projectRoot, publicPath, clientSrc } = require('./config');
 const { client: clientConfig } = require('../config');
 
@@ -21,7 +20,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ['thread-loader', 'babel-loader']
       },
       {
         test: /\.vue$/,
@@ -39,7 +38,12 @@ module.exports = {
             }
           },
           'resolve-url-loader',
-          'less-loader'
+          {
+            loader: 'less-loader',
+            options: {
+              sourceMap: true
+            }
+          }
         ]
       },
       {
@@ -50,36 +54,43 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: [require('autoprefixer')]
+              postcssOptions: {
+                plugins: [require('autoprefixer')]
+              }
             }
           },
           'resolve-url-loader',
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
         ]
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              name: 'img/[name].[hash:5].[ext]'
-            }
+        type: 'asset',
+        generator: {
+          filename: "img/[name].[hash:5][ext]"
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 200 * 1024
           }
-        ]
+        }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              name: 'fonts/[name].[hash:5].[ext]'
-            }
+        type: 'asset',
+        generator: {
+          filename: "fonts/[name].[hash:5][ext]"
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 200 * 1024
           }
-        ]
+        }
       }
     ]
   },

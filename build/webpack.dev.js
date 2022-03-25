@@ -1,14 +1,15 @@
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const { middleware } = require('../config');
 const webpackBaseConfig = require('./webpack.base');
 
 module.exports = merge(webpackBaseConfig, {
   mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-cheap-module-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
+  cache: true,
   devServer: {
     historyApiFallback: true,
     https: middleware.isHttps,
@@ -19,7 +20,7 @@ module.exports = merge(webpackBaseConfig, {
       {
         context: [],
         target: middleware.address + ':' + middleware.port,
-        bypass: (req, res, opt) => {
+        bypass: (req) => {
           if (req.headers.accept && req.headers.accept.indexOf('html') !== -1) {
             console.log('Skipping proxy for browser request.');
             return '/index.html';

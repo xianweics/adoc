@@ -1,19 +1,16 @@
 import Koa from 'koa';
 import koaStatic from 'koa-static';
 import { join, resolve } from 'path';
-import {
-  createProxyMiddleware
-} from 'http-proxy-middleware';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 import fs from 'fs';
-import config from '../../../config.js';
-import {
-  formatFullPath
-} from '../../../utils.js';
+import config from '../../config.js';
+import { formatFullPath } from '../../utils.js';
+
 const {
   client: clientConfig,
   middleware: middlewareConfig,
   service: serviceConfig
-} = config
+} = config;
 const {
   destName,
   outputHome
@@ -29,7 +26,7 @@ app.use(async (ctx, next) => {
   console.info(`middleware get request url from client: ${ctx.url}`);
   const serviceName = ctx.url.split('/').filter(item => item)[0];
   const specificServiceConfig = serviceConfig[serviceName];
-
+  
   if (ctx.method === 'OPTIONS') {
     ctx.status = 200; // option 预请求放行
   } else if (specificServiceConfig) {

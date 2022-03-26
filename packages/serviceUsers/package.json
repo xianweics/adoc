@@ -15,8 +15,7 @@
   },
   "scripts": {
     "dev": "babel src --watch --out-dir serviceUsersDist",
-    "start": "supervisor serviceUsersDist/index.js",
-    "build": "babel src --out-dir serviceUsersDist"
+    "start": "supervisor serviceUsersDist/index.js"
   },
   "bugs": {
     "url": "https://github.com/xianweics/project/issues"
@@ -27,8 +26,5 @@
     "koa-bodyparser": "^4.3.0",
     "log4js": "^6.4.4",
     "mysql": "^2.18.1"
-  },
-  "devDependencies": {
-    "supervisor": "^0.12.0"
   }
 }

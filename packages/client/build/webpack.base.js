@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { WebpackFilemanager } = require('filemanager-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const { clientDest, projectRoot, publicPath, clientSrc } = require('./config');
-const { client: clientConfig } = require('../../../config');
+const { client: clientConfig } = require('../../config');
 
 module.exports = {
   entry: {
@@ -109,9 +109,6 @@ module.exports = {
             items: [clientDest()]
           }
         }
-      },
-      options: {
-        cache: true
       }
     }),
     new HtmlWebpackPlugin({

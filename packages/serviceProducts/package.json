@@ -15,7 +15,8 @@
   },
   "scripts": {
     "dev": "babel src --watch --out-dir serviceProductsDist",
-    "start": "supervisor serviceProductsDist/index.js"
+    "start": "supervisor serviceProductsDist/index.js",
+    "build": "babel src --out-dir serviceProductsDist"
   },
   "bugs": {
     "url": "https://github.com/xianweics/project/issues"
@@ -27,5 +28,8 @@
     "koa-bodyparser": "^4.3.0",
     "@koa/router": "^10.1.1",
     "log4js": "^6.4.4"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
   }
 }

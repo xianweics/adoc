@@ -1,11 +1,18 @@
 {
-  "name": "service-users",
+  "name": "vue-spa",
   "version": "1.0.0",
   "description": "> TODO: description",
   "author": "lillian <18576670505@163.com>",
   "homepage": "https://github.com/xianweics/project#readme",
   "license": "ISC",
-  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -14,21 +21,17 @@
     "url": "git+https://github.com/xianweics/project.git"
   },
   "scripts": {
-    "dev": "babel src --watch --out-dir serviceUsersDist",
-    "start": "supervisor serviceUsersDist/index.js",
-    "build": "babel src --out-dir serviceUsersDist"
   },
   "bugs": {
     "url": "https://github.com/xianweics/project/issues"
   },
   "dependencies": {
-    "@koa/router": "^10.1.1",
-    "koa": "^2.13.4",
-    "koa-bodyparser": "^4.3.0",
-    "log4js": "^6.4.4",
-    "mysql": "^2.18.1"
+    "axios": "^0.26.1",
+    "single-spa-vue": "^2.5.1",
+    "vue": "2.6.14"
   },
   "devDependencies": {
-    "supervisor": "^0.12.0"
+    "@sentry/browser": "^6.19.2",
+    "@sentry/integrations": "^6.19.2"
   }
 }

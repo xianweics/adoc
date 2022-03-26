@@ -22,7 +22,8 @@
   },
   "scripts": {
     "dev": "babel src --watch --out-dir middlewareDist",
-    "start": "supervisor middlewareDist/index.js"
+    "start": "supervisor middlewareDist/index.js",
+    "build": "babel src --out-dir middlewareDist"
   },
   "bugs": {
     "url": "https://github.com/xianweics/project/issues"
@@ -31,5 +32,8 @@
     "koa-static": "^5.0.0",
     "http-proxy-middleware": "^2.0.4",
     "koa": "^2.13.4"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
   }
 }

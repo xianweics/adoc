@@ -1,8 +1,15 @@
 # project
 
+## Prerequisite
+
+- node
+- pnpm 
+- lerna
+- supervisor
+
 ## Development
 ```
-npm install
+lerna bootstrap
 npm run dev
 
 products service: http://localhost:4001

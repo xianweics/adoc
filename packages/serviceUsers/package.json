@@ -1,0 +1,30 @@
+{
+  "name": "service-users",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "lillian <18576670505@163.com>",
+  "homepage": "https://github.com/xianweics/project#readme",
+  "license": "ISC",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xianweics/project.git"
+  },
+  "scripts": {
+    "dev": "babel src --watch --out-dir serviceUsersDist",
+    "start": "supervisor serviceUsersDist/index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/xianweics/project/issues"
+  },
+  "dependencies": {
+    "@koa/router": "^10.1.1",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "log4js": "^6.4.4",
+    "mysql": "^2.18.1"
+  }
+}

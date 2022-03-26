@@ -5,14 +5,14 @@ const pathPrefix = (...paths) => (location) => paths.includes(location.pathname)
 
 registerApplication(
   'vue-spa',
-  () => import('./vueSpa/index.js'),
+  () => import('../vueSpa/index.js'),
   pathPrefix('/vue-spa')
 );
 
-registerApplication(
-  'react-spa',
-  () => import('./reactSpa/index.js'),
-  pathPrefix('/react-spa', '/')
-);
+// registerApplication(
+//   'react-spa',
+//   () => import('../reactSpa/index.js'),
+//   pathPrefix('/react-spa', '/')
+// );
 
 start();

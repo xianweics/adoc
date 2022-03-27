@@ -1,25 +1,25 @@
 {
   "name": "fullstack",
   "version": "1.0.0",
-  "main": "index.js",
+  "license": "ISC",
+  "homepage": "https://github.com/xianweics/project",
+  "description": "micro-frontend + middleware + gateway + multi-service",
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "dev": "run-p client start",
-    "client": "lerna run dev",
-    "start": "lerna run start",
-    "build": "lerna run build"
-  },
-  "description": "micro-frontend + middleware + gateway + multi-service",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xianweics"
+    "url": "git+https://github.com/xianweics/project.git"
   },
-  "license": "ISC",
+  "scripts": {
+    "prepare": "husky install",
+    "client": "lerna run dev",
+    "start": "lerna run start",
+    "build": "lerna run build",
+    "eslint": "lerna run eslint",
+    "eslint:fix": "lerna run eslint:fix"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.8",
-    "npm-run-all": "^4.1.5"
+    "husky": "^7.0.4"
   }
 }

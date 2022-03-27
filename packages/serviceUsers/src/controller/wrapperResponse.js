@@ -3,6 +3,6 @@ const wrapperResponse = ({ code, data, message = 'ok' }) => {
     code,
     data,
     message
-  };
-};
-export default wrapperResponse;
+  }
+}
+export default wrapperResponse

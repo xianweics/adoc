@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "../.eslintrc",
+    "plugin:json/recommended"
+  ],
+  "parserOptions": {
+    "requireConfigFile": true
+  }
+}

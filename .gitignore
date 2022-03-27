@@ -1,8 +1,18 @@
+# ide
 .idea
-node_modules
-*.iml
-package-lock.json
-*Dist
 .DS_Store
+*.iml
+
+# dependencies
+node_modules
+
+#files/folder
+package-lock.json
+middlewareDist
+clientDist
+serviceProductsDist
+serviceUsersDist
+
+#log
 packages/log
-*.log
+*debug.log

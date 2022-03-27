@@ -1,10 +1,10 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { WebpackFilemanager } = require('filemanager-plugin');
-const { VueLoaderPlugin } = require('vue-loader');
-const { clientDest, projectRoot, publicPath, clientSrc } = require('./config');
-const { client: clientConfig } = require('../../config');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { WebpackFilemanager } = require('filemanager-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
+const { clientDest, projectRoot, publicPath, clientSrc } = require('./config')
+const { client: clientConfig } = require('../../config')
+const ESLintPlugin = require('eslint-webpack-plugin')
 module.exports = {
   entry: {
     'single-spa-config': projectRoot('single-spa.config.js')
@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['thread-loader', 'babel-loader'],
+        use: ['thread-loader', 'babel-loader']
       },
       {
         test: /\.vue$/,
@@ -72,7 +72,7 @@ module.exports = {
         test: /\.(gif|png|jpe?g|svg)$/i,
         type: 'asset',
         generator: {
-          filename: "img/[name].[hash:5][ext]"
+          filename: 'img/[name].[hash:5][ext]'
         },
         parser: {
           dataUrlCondition: {
@@ -84,7 +84,7 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         type: 'asset',
         generator: {
-          filename: "fonts/[name].[hash:5][ext]"
+          filename: 'fonts/[name].[hash:5][ext]'
         },
         parser: {
           dataUrlCondition: {
@@ -95,13 +95,18 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.json', '.scss', '.less', '.css'],
+    extensions: ['.js', '.json', '.scss', '.less', '.css', '.vue', '.jsx'],
     alias: {
       vue: 'vue/dist/vue.js',
       '@root': projectRoot()
     }
   },
   plugins: [
+    new ESLintPlugin({
+      lintDirtyModulesOnly: false,
+      extensions: ['js', 'json', 'jsx', 'vue'],
+      context: projectRoot()
+    }),
     new WebpackFilemanager({
       events: {
         start: {
@@ -126,4 +131,4 @@ module.exports = {
       chunkFilename: 'css/[name].[chunkhash:5].css'
     })
   ]
-};
+}

@@ -1,35 +1,37 @@
 {
   "name": "middleware",
   "version": "1.0.0",
-  "description": "> TODO: description",
-  "author": "lillian <18576670505@163.com>",
-  "homepage": "https://github.com/xianweics/project#readme",
-  "license": "ISC",
-  "main": "src/index.js",
   "type": "module",
-  "directories": {
-    "lib": "src"
-  },
-  "files": [
-    "src"
-  ],
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xianweics/project.git"
-  },
   "scripts": {
     "dev": "babel src --watch --out-dir middlewareDist",
-    "start": "supervisor middlewareDist/index.js"
+    "start": "supervisor middlewareDist/index.js",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix"
   },
   "bugs": {
     "url": "https://github.com/xianweics/project/issues"
   },
   "dependencies": {
-    "koa-static": "^5.0.0",
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/eslint-parser": "^7.17.0",
     "http-proxy-middleware": "^2.0.4",
-    "koa": "^2.13.4"
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "prettier": "^2.6.1"
   }
 }

@@ -1,5 +1,5 @@
-import log4js from 'log4js';
-import { join, resolve } from 'path';
+import log4js from 'log4js'
+import { join, resolve } from 'path'
 
 const { configure, getLogger } = log4js
 
@@ -18,13 +18,13 @@ configure({
   categories: {
     default: { appenders: ['message'], level: 'info' }
   }
-});
+})
 
 export default class LogRecord {
   static init (app) {
     app.use(async (ctx, next) => {
-      getLogger('message').info(ctx.request);
-      await next();
-    });
+      getLogger('message').info(ctx.request)
+      await next()
+    })
   }
-};
+}

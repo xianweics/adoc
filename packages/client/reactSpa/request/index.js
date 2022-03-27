@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { middleware } from '../../../config';
-import { formatFullPath } from '../../../utils';
+import axios from "axios";
+import { middleware } from "../../../config";
+import { formatFullPath } from "../../../utils";
 
 const { protocol, address, port, service } = middleware;
 const request = axios.create({
@@ -8,22 +8,28 @@ const request = axios.create({
   // withCredentials: true
 });
 
-request.interceptors.request.use(config => {
-  return config;
-}, e => {
-  return Promise.reject(e);
-});
-
-request.interceptors.response.use(res => {
-  let result = {};
-  try {
-    result = res.data.data;
-  } catch (e) {
-    result = {};
+request.interceptors.request.use(
+  (config) => {
+    return config;
+  },
+  (e) => {
+    return Promise.reject(e);
   }
-  return result;
-}, (e) => {
-  return {};
-});
+);
+
+request.interceptors.response.use(
+  (res) => {
+    let result = {};
+    try {
+      result = res.data.data;
+    } catch (e) {
+      result = {};
+    }
+    return result;
+  },
+  () => {
+    return {};
+  }
+);
 
 export default request;

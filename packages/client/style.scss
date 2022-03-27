@@ -49,7 +49,7 @@
 
     &:disabled {
       cursor: not-allowed;
-      background: red
+      background: red;
     }
   }
 }
@@ -71,17 +71,15 @@
   border: 1px solid #eee;
   border-collapse: collapse;
 
-  tr{
+  tr {
     border-bottom: 1px solid #eee;
     &.active {
       background: red;
     }
   }
-  tbody{
-    tr:last-child{
+  tbody {
+    tr:last-child {
       border-bottom: none;
     }
   }
 }
-
-

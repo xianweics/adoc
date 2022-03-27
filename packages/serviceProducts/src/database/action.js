@@ -1,4 +1,4 @@
-import * as sql from './sql.js';
+import * as sql from './sql.js'
 
 const action = {
   goods: {
@@ -6,6 +6,6 @@ const action = {
     del: ([args]) => sql.delGoods(args),
     post: ([args]) => sql.addGoods(args)
   }
-};
+}
 
-export default action;
+export default action

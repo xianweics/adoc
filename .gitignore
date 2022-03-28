@@ -12,6 +12,8 @@ middlewareDist
 clientDist
 serviceProductsDist
 serviceUsersDist
+serviceAuthDist
+serviceMysqlDist
 
 #log
 packages/log

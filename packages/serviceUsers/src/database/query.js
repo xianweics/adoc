@@ -1,8 +1,16 @@
-import mysql from 'mysql'
 import config from './config.js'
+import {
+  mysqlPoolQuery
+} from '../../../utils.js'
+import PoolCluster from 'service-mysql/src/index.js'
 
-const { database } = config
-const pool = mysql.createPool({
+const poolCluster = PoolCluster.getInstance().poolCluster
+const {
+  database
+} = config
+const poolKey = database.database
+
+poolCluster.add(poolKey, {
   host: database.host,
   user: database.username,
   password: database.password,
@@ -10,16 +18,5 @@ const pool = mysql.createPool({
 })
 
 export default function query (sql, values) {
-  return new Promise((resolve, reject) => {
-    pool.getConnection((err, connection) => {
-      if (err) reject(err)
-
-      connection.query(sql, values, (err, rows) => {
-        if (err) reject(err)
-
-        resolve(rows)
-        connection.release()
-      })
-    })
-  })
+  return mysqlPoolQuery(sql, values, poolCluster, poolKey)
 }

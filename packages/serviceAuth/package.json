@@ -1,13 +1,13 @@
 {
-  "name": "service-users",
+  "name": "service-auth",
   "version": "1.0.0",
   "type": "module",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "dev": "babel src --watch --out-dir serviceUsersDist",
-    "start": "supervisor serviceUsersDist/index.js",
+    "dev": "babel src --watch --out-dir serviceAuthDist",
+    "start": "supervisor serviceAuthDist/index.js",
     "eslint": "eslint .",
     "eslint:fix": "eslint . --fix"
   },

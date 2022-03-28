@@ -12,6 +12,7 @@
 lerna bootstrap
 npm run dev
 
+auth service: http://localhost:4002
 products service: http://localhost:4001
 users service: http://localhost:4000
 middleware service: http://localhost:3000
@@ -28,6 +29,7 @@ npm run build
 // Deploy project after built
 npm run start
 
+auth service: http://localhost:4002
 products service: http://localhost:4001
 users service: http://localhost:4000
 client service: http://localhost:3000
@@ -40,6 +42,16 @@ client service: http://localhost:3000
 // serviceUser/database/config.js
 
 database: 'users',
+username: 'root',
+password: '123456',
+port: '3306',
+host: 'localhost'
+```
+
+```
+// serviceAuth/database/config.js
+
+database: 'auth',
 username: 'root',
 password: '123456',
 port: '3306',

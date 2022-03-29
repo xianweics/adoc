@@ -4,7 +4,8 @@ const action = {
   user: {
     get: ([args]) => sql.getUser(args),
     del: ([args]) => sql.delUser(args),
-    post: ([args]) => sql.addUser(args)
+    post: ([args]) => sql.addUser(args),
+    find: ([args]) => sql.findUser(args)
   }
 }
 

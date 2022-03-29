@@ -1,5 +1,7 @@
 import database from '../database/index.js'
-import wrapperResponse from './wrapperResponse.js'
+import {
+  wrapperResponse
+} from '../../../utils.js'
 
 export default {
   getUsers: async (ctx) => {

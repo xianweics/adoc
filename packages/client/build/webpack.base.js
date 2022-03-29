@@ -29,15 +29,16 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
+          // MiniCssExtractPlugin.loader,
           'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [require('autoprefixer')]
-            }
-          },
-          'resolve-url-loader',
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     plugins: [require('autoprefixer')]
+          //   }
+          // },
+          // 'resolve-url-loader',
           {
             loader: 'less-loader',
             options: {

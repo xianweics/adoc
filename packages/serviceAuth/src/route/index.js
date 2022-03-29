@@ -14,6 +14,7 @@ export default class Route {
       .get('/user', controller.getUser)
       .del('/user/:id', controller.delUser)
       .post('/user', controller.addUser)
+      .post('/login', controller.login)
     app.use(routes.routes())
   }
 }

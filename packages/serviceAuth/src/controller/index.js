@@ -1,8 +1,7 @@
 import database from "../database/index.js";
 import jwt from "jsonwebtoken";
 import { wrapperResponse } from "@project/helper-utils";
-import { responseCodeMap } from "../../../constant.js";
-import { auth } from "@project/helper-config";
+import { auth, responseCodeMap } from "@project/helper-config";
 const { secretKey, accessTokenExp, refreshTokenExp, secretRefreshKey } = auth;
 
 export default {

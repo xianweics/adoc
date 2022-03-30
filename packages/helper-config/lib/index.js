@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.service = exports.sentry = exports.middleware = exports.client = exports.auth = void 0;
+exports.whiteRouter = exports.service = exports.sentry = exports.responseCodeMap = exports.middleware = exports.client = exports.auth = void 0;
 const serviceUsers = "serviceUsers";
 const serviceProducts = "serviceProducts";
 const serviceAuth = "serviceAuth";
@@ -56,3 +56,41 @@ const auth = {
   refreshTokenExp: "24h"
 };
 exports.auth = auth;
+const responseCodeMap = {
+  NO_ACCOUNT: {
+    code: 30001,
+    data: null,
+    message: "用户名或者密码错误"
+  },
+  TOKEN_EXPIRATION: {
+    code: 30002,
+    data: null,
+    message: "访问令牌过期"
+  },
+  TOKEN_ERROR: {
+    code: 30003,
+    data: null,
+    message: "访问令牌无效"
+  },
+  REFRESH_TOKEN_EXPIRATION: {
+    code: 30004,
+    data: null,
+    message: "刷新令牌过期"
+  },
+  REFRESH_TOKEN_ERROR: {
+    code: 30004,
+    data: null,
+    message: "刷新令牌无效"
+  },
+  SUCCESS: {
+    code: 200,
+    message: "操作成功"
+  },
+  ERROR: {
+    code: 9,
+    message: "操作失败"
+  }
+};
+exports.responseCodeMap = responseCodeMap;
+const whiteRouter = ["/serviceAuth/login"];
+exports.whiteRouter = whiteRouter;

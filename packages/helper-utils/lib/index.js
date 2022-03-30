@@ -33,7 +33,7 @@ exports.mysqlPoolQuery = mysqlPoolQuery;
 const wrapperResponse = ({
   code,
   data,
-  message = '操作成功'
+  message = "操作成功"
 }) => {
   return {
     code,

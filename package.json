@@ -17,7 +17,8 @@
     "start": "lerna run start",
     "build": "lerna run build",
     "eslint": "lerna run eslint",
-    "eslint:fix": "lerna run eslint:fix"
+    "eslint:fix": "lerna run eslint:fix",
+    "build:cjs": "lerna run build:cjs"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",

@@ -9,9 +9,10 @@ import {
   middleware as middlewareConfig,
   service as serviceConfig,
   auth as authConfig,
+  responseCodeMap,
+  whiteRouter,
 } from "@project/helper-config";
 import { formatFullPath, wrapperResponse } from "@project/helper-utils";
-import { responseCodeMap, whiteRouter } from "../../constant.js";
 
 const { destName, outputHome } = clientConfig;
 const { secretKey, accessTokenExp, secretRefreshKey } = authConfig;

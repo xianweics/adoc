@@ -1,16 +1,13 @@
 {
+  "parserOptions": {
+    "requireConfigFile": true
+  },
   "extends": [
-    "../.eslintrc",
+    "standard",
+    "plugin:json/recommended",
     "plugin:vue/recommended",
     "plugin:prettier/recommended"
   ],
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "./build/webpack.base.js"
-      }
-    }
-  },
   "parser": "vue-eslint-parser",
   "rules": {
     "vue/multiline-html-element-content-newline": "error"

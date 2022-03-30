@@ -4,6 +4,8 @@
     "requireConfigFile": false
   },
   "extends": [
-    "standard"
+    "standard",
+    "plugin:json/recommended",
+    "plugin:prettier/recommended"
   ]
 }

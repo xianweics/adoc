@@ -3,7 +3,7 @@ import singleSpaVue from "single-spa-vue";
 import Root from "./rootComponent.vue";
 import * as Sentry from "@sentry/browser";
 import { Vue as VueIntegration } from "@sentry/integrations";
-import { sentry } from "../../config";
+import { sentry } from "@project/helper-config";
 import createRequest from "../utils/request";
 
 sentry.open &&

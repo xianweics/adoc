@@ -2,7 +2,7 @@ import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
 import rootComponent from "./root.component.js";
 import * as Sentry from "@sentry/browser";
-import { sentry } from "../../config";
+import { sentry } from "@project/helper-config";
 import React from "react";
 
 sentry.open &&

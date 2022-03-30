@@ -1,17 +1,17 @@
-import mysql from 'mysql'
+import mysql from "mysql";
 
 class PoolCluster {
-  constructor () {
-    this.poolCluster = mysql.createPoolCluster()
-    this._instance = null
+  constructor() {
+    this.poolCluster = mysql.createPoolCluster();
+    this._instance = null;
   }
 
-  static getInstance () {
+  static getInstance() {
     if (!PoolCluster._instance) {
-      PoolCluster._instance = new PoolCluster()
+      PoolCluster._instance = new PoolCluster();
     }
-    return PoolCluster._instance
+    return PoolCluster._instance;
   }
 }
 
-export default PoolCluster
+export default PoolCluster;

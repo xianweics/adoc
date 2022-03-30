@@ -6,32 +6,16 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "babel src --watch --out-dir serviceAuthDist",
-    "start": "supervisor serviceAuthDist/index.js",
-    "eslint": "eslint .",
-    "eslint:fix": "eslint . --fix"
+    "start": "nodemon src/index.js",
+    "eslint": "eslint . --ext .js,.json",
+    "eslint:fix": "npm run eslint --  --fix"
   },
   "dependencies": {
-    "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.8",
-    "@babel/eslint-parser": "^7.17.0",
     "@koa/router": "^10.1.1",
     "jsonwebtoken": "^8.5.1",
+    "@project/service-mysql": "^1.0.0",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
-    "log4js": "^6.4.4",
-    "service-mysql": "^1.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^8.12.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-import-resolver-node": "^0.3.6",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-json": "^3.1.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "prettier": "^2.6.1"
+    "log4js": "^6.4.4"
   }
 }

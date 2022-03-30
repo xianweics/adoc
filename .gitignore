@@ -8,12 +8,7 @@ node_modules
 
 #files/folder
 package-lock.json
-middlewareDist
 clientDist
-serviceProductsDist
-serviceUsersDist
-serviceAuthDist
-serviceMysqlDist
 
 #log
 packages/log

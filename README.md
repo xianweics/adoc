@@ -73,4 +73,5 @@ host: 'localhost'
 ```
 1. 支持不同版本 vue/react
 2. 完善webpack配置
+3. api权限
 ```

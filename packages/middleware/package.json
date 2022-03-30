@@ -19,6 +19,7 @@
     "@babel/core": "^7.17.8",
     "@babel/eslint-parser": "^7.17.0",
     "http-proxy-middleware": "^2.0.4",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.4",
     "koa-static": "^5.0.0"
   },

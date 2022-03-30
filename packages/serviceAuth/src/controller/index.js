@@ -1,10 +1,10 @@
 import database from '../database/index.js'
-import {
-  wrapperResponse
-} from '../../../utils.js'
-import {
-  responseCodeMap
-} from '../../../constant.js'
+import jwt from 'jsonwebtoken'
+import { wrapperResponse } from '../../../utils.js'
+import { responseCodeMap } from '../../../constant.js'
+import config from '../../../config.js'
+const { auth } = config
+const { secretKey, accessTokenExp, refreshTokenExp, secretRefreshKey } = auth
 
 export default {
   getUser: async (ctx) => {
@@ -39,20 +39,34 @@ export default {
     })
   },
   login: async (ctx) => {
-    const {
-      userName,
-      password
-    } = ctx.request.body
+    const { userName, password } = ctx.request.body
     const data = await database('find', 'user', {
       userName,
       password
     })
-    console.log(data, 2222222, !data)
+    // 用户不存在或者密码错误
     if (!data || !data.length) {
       console.log(responseCodeMap.NO_ACCOUNT, 3333)
       ctx.body = wrapperResponse(responseCodeMap.NO_ACCOUNT)
       return
     }
-    ctx.body = wrapperResponse(responseCodeMap.SUCCESS)
+    const { userName: uName, password: pwd, ...restInfo } = data[0]
+    const userInfo = {
+      userName: uName
+    }
+    const accessToken = jwt.sign(userInfo, secretKey, {
+      expiresIn: accessTokenExp
+    })
+    const refreshToken = jwt.sign(userInfo, secretRefreshKey, {
+      expiresIn: refreshTokenExp
+    })
+    ctx.body = wrapperResponse({
+      ...responseCodeMap.SUCCESS,
+      data: {
+        accessToken,
+        refreshToken,
+        ...restInfo
+      }
+    })
   }
 }

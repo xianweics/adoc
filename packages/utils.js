@@ -19,7 +19,7 @@ const mysqlPoolQuery = function query(sql, values, poolCluster, poolKey) {
 }
 
 // 接口返回数据结构
-const wrapperResponse = ({ code, data, message = 'ok' }) => {
+const wrapperResponse = ({ code, data, message = '操作成功' }) => {
   return {
     code,
     data,

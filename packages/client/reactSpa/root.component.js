@@ -1,7 +1,8 @@
 import React from "react";
 import src from "../office365.png";
-import request from "./request";
+import createRequest from "../utils/request";
 
+const request = createRequest(globalThis.localStorage, "react");
 export default class Root extends React.Component {
   state = {
     goodsList: [],

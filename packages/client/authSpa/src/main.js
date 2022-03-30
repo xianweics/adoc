@@ -5,16 +5,56 @@ import singleSpaVue from "single-spa-vue";
 import * as Sentry from "@sentry/browser";
 import { Vue as VueIntegration } from "@sentry/integrations";
 import { sentry } from "../../../config";
-import request from "./request";
+import createRequest from "../../utils/request";
+
+import {
+  Layout,
+  Input,
+  Button,
+  Row,
+  Col,
+  Modal,
+  Icon,
+  Dropdown,
+  Spin,
+  Menu,
+  Drawer,
+  message,
+  ConfigProvider,
+  FormModel,
+  Space,
+} from "ant-design-vue";
+
+Vue.use(Layout);
+Vue.use(Input);
+Vue.use(Button);
+Vue.use(Row);
+Vue.use(Col);
+Vue.use(Modal);
+Vue.use(Icon);
+Vue.use(Dropdown);
+Vue.use(Spin);
+Vue.use(Menu);
+Vue.use(Drawer);
+Vue.use(ConfigProvider);
+Vue.use(FormModel);
+Vue.use(Space);
+
+Vue.prototype.$confirm = Modal.confirm;
+Vue.prototype.$message = message;
+Vue.prototype.$info = Modal.info;
+Vue.prototype.$success = Modal.success;
+Vue.prototype.$error = Modal.error;
+Vue.prototype.$warning = Modal.warning;
+
+Vue.config.productionTip = false;
+Vue.prototype.$http = createRequest(localStorage, "auth");
 
 sentry.open &&
   Sentry.init({
     dsn: sentry.dsn,
     integrations: [new VueIntegration({ Vue, attachProps: true })],
   });
-
-Vue.config.productionTip = false;
-Vue.prototype.$http = request;
 
 const vueLifecycles = singleSpaVue({
   Vue,

@@ -4,7 +4,7 @@ import Root from "./rootComponent.vue";
 import * as Sentry from "@sentry/browser";
 import { Vue as VueIntegration } from "@sentry/integrations";
 import { sentry } from "../../config";
-import request from "./request";
+import createRequest from "../utils/request";
 
 sentry.open &&
   Sentry.init({
@@ -12,7 +12,7 @@ sentry.open &&
     integrations: [new VueIntegration({ Vue, attachProps: true })],
   });
 
-Vue.prototype.$http = request;
+Vue.prototype.$http = createRequest(localStorage, "vue");
 
 const vueLifecycles = singleSpaVue({
   Vue,

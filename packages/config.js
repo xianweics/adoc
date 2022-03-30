@@ -39,6 +39,12 @@ const config = {
       address: '127.0.0.1',
       protocol: 'http'
     }
+  },
+  auth: {
+    secretKey: 'MICRO_SECRET_AUTH_KEY',
+    secretRefreshKey: 'MICRO_SECRET_AUTH_REFRESH_KEY',
+    accessTokenExp: '5m',
+    refreshTokenExp: '24h'
   }
 };
 module.exports = config;

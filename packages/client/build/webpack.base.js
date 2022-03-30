@@ -42,7 +42,10 @@ module.exports = {
           {
             loader: 'less-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
+              lessOptions: {
+                javascriptEnabled: true
+              }
             }
           }
         ]

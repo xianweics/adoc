@@ -4,8 +4,8 @@ import router from "./router";
 import singleSpaVue from "single-spa-vue";
 import * as Sentry from "@sentry/browser";
 import { Vue as VueIntegration } from "@sentry/integrations";
-import { sentry } from "../../../config";
 import createRequest from "../../utils/request";
+import { sentry } from "@project/helper-config";
 
 import {
   Layout,

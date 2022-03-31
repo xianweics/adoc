@@ -1,7 +1,7 @@
 import axios from "axios";
 import { message } from "ant-design-vue";
-import { middleware } from "../../config";
-import { formatFullPath } from "../../utils";
+import { middleware } from "@project/helper-config";
+import { formatFullPath } from "@project/helper-utils";
 
 const createRequest = (localStorage, subUrlKey) => {
   const { protocol, address, port, service } = middleware;

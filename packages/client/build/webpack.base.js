@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { WebpackFilemanager } = require("filemanager-plugin");
 const { VueLoaderPlugin } = require("vue-loader");
 const { clientDest, projectRoot, publicPath, clientSrc } = require("./config");
-const { client: clientConfig } = require("../../config");
+const { client: clientConfig } = require("@project/helper-config");
 const ESLintPlugin = require("eslint-webpack-plugin");
 module.exports = {
   entry: {

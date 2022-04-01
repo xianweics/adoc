@@ -13,9 +13,11 @@ import {
   whiteRouter,
 } from "@project/helper-config";
 import { formatFullPath, wrapperResponse } from "@project/helper-utils";
+import { RedisClient } from "@project/service-init";
+const redisClient = await RedisClient.getInstance().redisClient;
 
 const { destName, outputHome } = clientConfig;
-const { secretKey, accessTokenExp, secretRefreshKey } = authConfig;
+const { secretKey, accessTokenExp } = authConfig;
 const app = new Koa();
 app.use(koaStatic(join(resolve(), "..", destName))); // 设置静态资源路径
 app.use(async (ctx, next) => {
@@ -40,31 +42,23 @@ app.use(async (ctx, next) => {
     if (ctx.url === "/serviceAuth/setToken") {
       const refreshToken = ctx.request.header.refreshtoken;
       const userName = ctx.request.header.username;
+      const hasRefreshTokenKey = await redisClient.get(refreshToken);
       // 校验刷新令牌
-      jwt.verify(refreshToken, secretRefreshKey, function (err, result) {
-        if (err) {
-          if (err.name === "TokenExpiredError") {
-            // 刷新令牌过期
-            ctx.body = wrapperResponse(
-              responseCodeMap.REFRESH_TOKEN_EXPIRATION
-            );
-          } else {
-            // 刷新令牌无效
-            ctx.body = wrapperResponse(responseCodeMap.REFRESH_TOKEN_ERROR);
-          }
-        } else {
-          // 刷新令牌正常，重新生成访问令牌
-          const accessTokenRestore = jwt.sign({ userName }, secretKey, {
-            expiresIn: accessTokenExp,
-          });
-          ctx.body = wrapperResponse({
-            ...responseCodeMap.SUCCESS,
-            data: { accessToken: accessTokenRestore },
-            message: null,
-          });
-          isPass = false;
-        }
-      });
+      if (!hasRefreshTokenKey) {
+        ctx.body = wrapperResponse(responseCodeMap.REFRESH_TOKEN_ERROR);
+        isPass = false;
+      } else {
+        // 刷新令牌正常，重新生成访问令牌
+        const accessTokenRestore = jwt.sign({ userName }, secretKey, {
+          expiresIn: accessTokenExp,
+        });
+        ctx.body = wrapperResponse({
+          ...responseCodeMap.SUCCESS,
+          data: { accessToken: accessTokenRestore },
+          message: null,
+        });
+        isPass = false;
+      }
     } else {
       const accessToken = ctx.request.header.accesstoken;
       // 校验访客令牌

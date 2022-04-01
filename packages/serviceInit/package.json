@@ -1,20 +1,17 @@
 {
-  "name": "service-users",
+  "name": "@project/service-init",
   "version": "1.0.0",
   "type": "module",
+  "main": "src/index.js",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "start": "nodemon src/index.js",
     "eslint": "eslint . --ext .js,.json",
     "eslint:fix": "npm run eslint --  --fix"
   },
   "dependencies": {
-    "@koa/router": "^10.1.1",
-    "@project/service-init": "^1.0.0",
-    "koa": "^2.13.4",
-    "koa-bodyparser": "^4.3.0",
-    "log4js": "^6.4.4"
+    "mysql": "^2.18.1",
+    "redis": "^4.0.6"
   }
 }

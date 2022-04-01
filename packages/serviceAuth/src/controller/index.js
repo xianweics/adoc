@@ -2,6 +2,9 @@ import database from "../database/index.js";
 import jwt from "jsonwebtoken";
 import { wrapperResponse } from "@project/helper-utils";
 import { auth, responseCodeMap } from "@project/helper-config";
+import { RedisClient } from "@project/service-init";
+import { redisRefreshTokenEx } from "../redis/config.js";
+const redisClient = await RedisClient.getInstance().redisClient;
 const { secretKey, accessTokenExp, refreshTokenExp, secretRefreshKey } = auth;
 
 export default {
@@ -58,6 +61,16 @@ export default {
     const refreshToken = jwt.sign(userInfo, secretRefreshKey, {
       expiresIn: refreshTokenExp,
     });
+
+    // use redis set refreshToken
+    await redisClient.set(
+      refreshToken,
+      JSON.stringify({ userName, accessToken }),
+      {
+        NX: true,
+        EX: redisRefreshTokenEx,
+      }
+    );
     ctx.body = wrapperResponse({
       ...responseCodeMap.SUCCESS,
       data: {

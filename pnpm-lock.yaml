@@ -153,11 +153,13 @@ importers:
 
   packages/middleware:
     specifiers:
+      '@project/service-init': ^1.0.0
       http-proxy-middleware: ^2.0.4
       jsonwebtoken: ^8.5.1
       koa: ^2.13.4
       koa-static: ^5.0.0
     dependencies:
+      '@project/service-init': link:../serviceInit
       http-proxy-middleware: 2.0.4
       jsonwebtoken: 8.5.1
       koa: 2.13.4
@@ -166,24 +168,26 @@ importers:
   packages/serviceAuth:
     specifiers:
       '@koa/router': ^10.1.1
-      '@project/service-mysql': ^1.0.0
+      '@project/service-init': ^1.0.0
       jsonwebtoken: ^8.5.1
       koa: ^2.13.4
       koa-bodyparser: ^4.3.0
       log4js: ^6.4.4
     dependencies:
       '@koa/router': 10.1.1
-      '@project/service-mysql': link:../serviceMysql
+      '@project/service-init': link:../serviceInit
       jsonwebtoken: 8.5.1
       koa: 2.13.4
       koa-bodyparser: 4.3.0
       log4js: 6.4.4
 
-  packages/serviceMysql:
+  packages/serviceInit:
     specifiers:
       mysql: ^2.18.1
+      redis: ^4.0.6
     dependencies:
       mysql: 2.18.1
+      redis: 4.0.6
 
   packages/serviceProducts:
     specifiers:
@@ -204,13 +208,13 @@ importers:
   packages/serviceUsers:
     specifiers:
       '@koa/router': ^10.1.1
-      '@project/service-mysql': ^1.0.0
+      '@project/service-init': ^1.0.0
       koa: ^2.13.4
       koa-bodyparser: ^4.3.0
       log4js: ^6.4.4
     dependencies:
       '@koa/router': 10.1.1
-      '@project/service-mysql': link:../serviceMysql
+      '@project/service-init': link:../serviceInit
       koa: 2.13.4
       koa-bodyparser: 4.3.0
       log4js: 6.4.4
@@ -1597,6 +1601,56 @@ packages:
     dev: true
     optional: true
 
+  /@node-redis/bloom/1.0.1_@node-redis+client@1.0.5:
+    resolution: {integrity: sha512-mXEBvEIgF4tUzdIN89LiYsbi6//EdpFA7L8M+DHCvePXg+bfHWi+ct5VI6nHUFQE5+ohm/9wmgihCH3HSkeKsw==}
+    peerDependencies:
+      '@node-redis/client': ^1.0.0
+    dependencies:
+      '@node-redis/client': 1.0.5
+    dev: false
+
+  /@node-redis/client/1.0.5:
+    resolution: {integrity: sha512-ESZ3bd1f+od62h4MaBLKum+klVJfA4wAeLHcVQBkoXa1l0viFesOWnakLQqKg+UyrlJhZmXJWtu0Y9v7iTMrig==}
+    engines: {node: '>=12'}
+    dependencies:
+      cluster-key-slot: 1.1.0
+      generic-pool: 3.8.2
+      redis-parser: 3.0.0
+      yallist: 4.0.0
+    dev: false
+
+  /@node-redis/graph/1.0.0_@node-redis+client@1.0.5:
+    resolution: {integrity: sha512-mRSo8jEGC0cf+Rm7q8mWMKKKqkn6EAnA9IA2S3JvUv/gaWW/73vil7GLNwion2ihTptAm05I9LkepzfIXUKX5g==}
+    peerDependencies:
+      '@node-redis/client': ^1.0.0
+    dependencies:
+      '@node-redis/client': 1.0.5
+    dev: false
+
+  /@node-redis/json/1.0.2_@node-redis+client@1.0.5:
+    resolution: {integrity: sha512-qVRgn8WfG46QQ08CghSbY4VhHFgaTY71WjpwRBGEuqGPfWwfRcIf3OqSpR7Q/45X+v3xd8mvYjywqh0wqJ8T+g==}
+    peerDependencies:
+      '@node-redis/client': ^1.0.0
+    dependencies:
+      '@node-redis/client': 1.0.5
+    dev: false
+
+  /@node-redis/search/1.0.5_@node-redis+client@1.0.5:
+    resolution: {integrity: sha512-MCOL8iCKq4v+3HgEQv8zGlSkZyXSXtERgrAJ4TSryIG/eLFy84b57KmNNa/V7M1Q2Wd2hgn2nPCGNcQtk1R1OQ==}
+    peerDependencies:
+      '@node-redis/client': ^1.0.0
+    dependencies:
+      '@node-redis/client': 1.0.5
+    dev: false
+
+  /@node-redis/time-series/1.0.2_@node-redis+client@1.0.5:
+    resolution: {integrity: sha512-HGQ8YooJ8Mx7l28tD7XjtB3ImLEjlUxG1wC1PAjxu6hPJqjPshUZxAICzDqDjtIbhDTf48WXXUcx8TQJB1XTKA==}
+    peerDependencies:
+      '@node-redis/client': ^1.0.0
+    dependencies:
+      '@node-redis/client': 1.0.5
+    dev: false
+
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -2673,6 +2727,11 @@ packages:
     dependencies:
       mimic-response: 1.0.1
     dev: true
+
+  /cluster-key-slot/1.1.0:
+    resolution: {integrity: sha512-2Nii8p3RwAPiFwsnZvukotvow2rIHM+yQ6ZcBXGHdniadkYGZYiGmkHJIbZPIV9nfv7m/U1IPMVVcAhoWFeklw==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /co-body/6.1.0:
     resolution: {integrity: sha512-m7pOT6CdLN7FuXUcpuz/8lfQ/L77x8SchHCF4G0RBTJO20Wzmhn5Sp4/5WsKy8OSpifBSUrmg83qEqaDHdyFuQ==}
@@ -3926,6 +3985,11 @@ packages:
       strip-ansi: 3.0.1
       wide-align: 1.1.5
     dev: true
+
+  /generic-pool/3.8.2:
+    resolution: {integrity: sha512-nGToKy6p3PAbYQ7p1UlWl6vSPwfwU6TMSWK7TTu+WUY4ZjyZQGniGGt2oNVvyNSpyZYSB43zMXVLcBm08MTMkg==}
+    engines: {node: '>= 4'}
+    dev: false
 
   /gensync/1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
@@ -6089,6 +6153,29 @@ packages:
       resolve: 1.22.0
     dev: true
 
+  /redis-errors/1.2.0:
+    resolution: {integrity: sha1-62LSrbFeTq9GEMBK/hUpOEJQq60=}
+    engines: {node: '>=4'}
+    dev: false
+
+  /redis-parser/3.0.0:
+    resolution: {integrity: sha1-tm2CjNyv5rS4pCin3vTGvKwxyLQ=}
+    engines: {node: '>=4'}
+    dependencies:
+      redis-errors: 1.2.0
+    dev: false
+
+  /redis/4.0.6:
+    resolution: {integrity: sha512-IaPAxgF5dV0jx+A9l6yd6R9/PAChZIoAskDVRzUODeLDNhsMlq7OLLTmu0AwAr0xjrJ1bibW5xdpRwqIQ8Q0Xg==}
+    dependencies:
+      '@node-redis/bloom': 1.0.1_@node-redis+client@1.0.5
+      '@node-redis/client': 1.0.5
+      '@node-redis/graph': 1.0.0_@node-redis+client@1.0.5
+      '@node-redis/json': 1.0.2_@node-redis+client@1.0.5
+      '@node-redis/search': 1.0.5_@node-redis+client@1.0.5
+      '@node-redis/time-series': 1.0.2_@node-redis+client@1.0.5
+    dev: false
+
   /regenerate-unicode-properties/10.0.1:
     resolution: {integrity: sha512-vn5DU6yg6h8hP/2OkQo3K7uVILvY4iu0oI4t3HFa81UPkhGJwkRwM10JEc3upjdhHjs/k8GJY1sRBhk5sr69Bw==}
     engines: {node: '>=4'}
@@ -7475,7 +7562,6 @@ packages:
 
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
-    dev: true
 
   /yaml/1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}

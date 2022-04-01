@@ -73,8 +73,12 @@ const createRequest = (localStorage, subUrlKey) => {
                 resolve(false);
               });
           } else if (code === 30004) {
-            // 刷新令牌过期或者无效，重定向到登陆页面
-            window.location.href = "/auth-spa";
+            message.error(msg);
+            localStorage.clear();
+            setTimeout(() => {
+              // 刷新令牌过期或者无效，重定向到登陆页面
+              window.location.href = "/auth-spa";
+            }, 500);
           } else {
             message.error(msg);
             resolve(false);

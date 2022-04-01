@@ -14,7 +14,7 @@
   "scripts": {
     "prepare": "husky install",
     "client": "lerna run dev",
-    "start": "lerna run start",
+    "start": "lerna run start --stream",
     "build": "lerna run build",
     "eslint": "lerna run eslint",
     "eslint:fix": "lerna run eslint:fix",

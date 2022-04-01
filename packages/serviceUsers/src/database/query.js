@@ -1,6 +1,6 @@
 import config from "./config.js";
 import { mysqlPoolQuery } from "@project/helper-utils";
-import PoolCluster from "@project/service-mysql";
+import { PoolCluster } from "@project/service-init";
 
 const poolCluster = PoolCluster.getInstance().poolCluster;
 const { database } = config;

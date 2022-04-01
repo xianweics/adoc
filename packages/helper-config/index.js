@@ -43,7 +43,7 @@ export const service = {
 export const auth = {
   secretKey: "MICRO_SECRET_AUTH_KEY",
   secretRefreshKey: "MICRO_SECRET_AUTH_REFRESH_KEY",
-  accessTokenExp: "5m",
+  accessTokenExp: "10m",
   refreshTokenExp: "24h",
 };
 

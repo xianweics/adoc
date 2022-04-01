@@ -5,7 +5,6 @@
 - node
 - pnpm 
 - lerna
-- supervisor
 
 ## Development
 ```
@@ -67,6 +66,35 @@ username: 'postgres',
 password: '123456',
 port: '5432',
 host: 'localhost'
+```
+
+### redis
+## server
+```
+<!-- mac -->
+# 安装 redis
+➜ brew install redis
+
+# 启动 redis 服务端
+➜ redis-server
+
+# 启动 redis 客户端
+➜ redis-cli
+
+# 编辑默认配置文件
+➜ sudo vim /usr/local/etc/redis.conf
+```
+
+```
+// serviceInit/src/config.js
+
+<!-- 密码替换成自己设置的密码， 如没设，不需要 password 字段 -->
+password: "xxxxxx",
+socket: {
+    port: 6379,
+    host: "127.0.0.1"
+}
+
 ```
 
 ### TODOLIST

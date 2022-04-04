@@ -7,13 +7,14 @@
   "workspaces": [
     "packages/*"
   ],
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xianweics/project.git"
   },
   "scripts": {
     "prepare": "husky install",
-    "client": "lerna run dev",
+    "client": "lerna run dev --stream",
     "start": "lerna run start --stream",
     "build": "lerna run build",
     "eslint": "lerna run eslint",

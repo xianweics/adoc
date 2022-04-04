@@ -9,13 +9,23 @@
 ## Development
 ```
 lerna bootstrap
-npm run dev
 
+npm run client
+
+<!-- client -->
+client-root: http://localhost:9000
+client-vue: http://localhost:9001
+client-vue3: http://localhost:9002
+client-react: http://localhost:9003
+
+npm run start
+
+<!-- server -->
 auth service: http://localhost:4002
 products service: http://localhost:4001
 users service: http://localhost:4000
-middleware service: http://localhost:3000
-client: http://localhost:8000
+middleware service: http://localhost:2000
+
 ```
 
 ## Building
@@ -31,7 +41,7 @@ npm run start
 auth service: http://localhost:4002
 products service: http://localhost:4001
 users service: http://localhost:4000
-client service: http://localhost:3000
+middleware service: http://localhost:2000
 ```
 
 ## Database setting

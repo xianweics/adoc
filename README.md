@@ -13,10 +13,7 @@ lerna bootstrap
 npm run client
 
 <!-- client -->
-client-root: http://localhost:9000
-client-vue: http://localhost:9001
-client-vue3: http://localhost:9002
-client-react: http://localhost:9003
+client: http://localhost:8089
 
 npm run start
 

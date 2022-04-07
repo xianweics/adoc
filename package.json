@@ -17,16 +17,15 @@
     "start": "lerna run start --stream",
     "build": "lerna run build",
     "eslint": "lerna run eslint",
-    "eslint:fix": "lerna run eslint:fix",
-    "build:cjs": "lerna run build:cjs"
+    "eslint:fix": "lerna run eslint:fix"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
     "@babel/eslint-parser": "^7.17.0",
     "@babel/node": "^7.16.8",
-    "@project/helper-config": "workspace:^",
-    "@project/helper-utils": "workspace:^",
+    "@project/helper-config": "workspace:^1.0.1",
+    "@project/helper-utils": "workspace:^1.0.0",
     "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^16.0.3",

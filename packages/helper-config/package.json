@@ -1,10 +1,15 @@
 {
   "name": "@project/helper-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "module": "index.js",
+  "files": [
+    "lib",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
-    "build:cjs": "babel index.js -d lib",
+    "build": "babel index.js -d lib",
     "eslint": "eslint . --ext .js,.json",
     "eslint:fix": "npm run eslint --  --fix"
   },

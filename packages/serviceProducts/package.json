@@ -2,6 +2,7 @@
   "name": "service-products",
   "version": "1.0.0",
   "type": "module",
+  "main": "src/index.js",
   "publishConfig": {
     "access": "public"
   },

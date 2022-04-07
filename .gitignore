@@ -6,10 +6,13 @@
 # dependencies
 node_modules
 
-#files/folder
-package-lock.json
-clientDist
-
 #log
 packages/log
 *debug.log
+
+#dist
+clientDist
+packages/*/lib/
+
+#other
+package-lock.json

@@ -3,7 +3,7 @@ const serviceProducts = "serviceProducts";
 const serviceAuth = "serviceAuth";
 export const sentry = {
   dsn: "http://ff7764eb82a94a6dbf34182217a88106@localhost:9000/1",
-  send: false,
+  open: false,
 };
 export const client = {
   srcName: "",

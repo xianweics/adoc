@@ -20,7 +20,7 @@ const config = {
     minimizer: [new TerserPlugin()],
   },
 };
-if (sentry.send) {
+if (sentry.open) {
   config.plugins.push(
     new SentryWebpackPlugin({
       include: clientDest(),

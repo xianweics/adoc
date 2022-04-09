@@ -1,17 +1,17 @@
 const serviceUsers = "serviceUsers";
 const serviceProducts = "serviceProducts";
 const serviceAuth = "serviceAuth";
-export const sentry = {
+const sentry = {
   dsn: "http://ff7764eb82a94a6dbf34182217a88106@localhost:9000/1",
   open: false,
 };
-export const client = {
+const client = {
   srcName: "",
   destName: "clientDist",
   entryHome: "index.html",
   outputHome: "index.html",
 };
-export const middleware = {
+const middleware = {
   port: 2000,
   address: "127.0.0.1",
   protocol: "http",
@@ -22,7 +22,7 @@ export const middleware = {
     auth: serviceAuth,
   },
 };
-export const service = {
+const service = {
   [serviceUsers]: {
     port: 4000,
     address: "127.0.0.1",
@@ -40,14 +40,14 @@ export const service = {
   },
 };
 
-export const auth = {
+const auth = {
   secretKey: "MICRO_SECRET_AUTH_KEY",
   secretRefreshKey: "MICRO_SECRET_AUTH_REFRESH_KEY",
   accessTokenExp: "10m",
   refreshTokenExp: "24h",
 };
 
-export const responseCodeMap = {
+const responseCodeMap = {
   NO_ACCOUNT: {
     code: 30001,
     data: null,
@@ -83,4 +83,14 @@ export const responseCodeMap = {
   },
 };
 
-export const whiteRouter = ["/serviceAuth/login"];
+const whiteRouter = ["/serviceAuth/login"];
+
+module.exports = {
+  sentry,
+  client,
+  middleware,
+  service,
+  auth,
+  responseCodeMap,
+  whiteRouter,
+};

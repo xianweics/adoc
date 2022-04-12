@@ -1,5 +1,5 @@
-import Pool from "pg-pool";
-import config from "./config.js";
+import Pool from 'pg-pool';
+import config from './config.js';
 
 const { database } = config;
 
@@ -8,7 +8,7 @@ const pool = new Pool({
   user: database.username,
   password: database.password,
   port: database.port,
-  host: database.host,
+  host: database.host
 });
 
 export default async function query(sql, values) {

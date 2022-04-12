@@ -29,26 +29,26 @@
 
 <script>
 export default {
-  name: "HomeView",
+  name: 'HomeView',
   data() {
     return {
       labelCol: { span: 5 },
       wrapperCol: { span: 18 },
       form: {
-        userName: "",
-        password: "",
+        userName: '',
+        password: ''
       },
       rules: {
         userName: [
-          { required: true, message: "请输入用户名", trigger: "blur" },
+          { required: true, message: '请输入用户名', trigger: 'blur' }
         ],
-        password: [{ required: true, message: "请输入密码", trigger: "blur" }],
-      },
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+      }
     };
   },
   methods: {
     async getUsers() {
-      this.users = await this.$http.get("user");
+      this.users = await this.$http.get('user');
       this.activeId = 0;
     },
     async login() {
@@ -62,21 +62,21 @@ export default {
       });
       if (!isPass) return;
       const { userName, password } = this.form;
-      const res = await this.$http.post("login", {
+      const res = await this.$http.post('login', {
         userName,
-        password,
+        password
       });
       if (res) {
         const { accessToken, refreshToken } = res;
-        localStorage.setItem("accessToken", accessToken);
-        localStorage.setItem("refreshToken", refreshToken);
-        localStorage.setItem("userName", userName);
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('refreshToken', refreshToken);
+        localStorage.setItem('userName', userName);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="less">
-@import "../styles/login.less";
+@import '../styles/login.less';
 </style>

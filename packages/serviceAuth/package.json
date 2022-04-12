@@ -6,7 +6,7 @@
     "access": "public"
   },
   "scripts": {
-    "start": "nodemon src/index.js",
+    "dev": "nodemon src/index.js",
     "eslint": "eslint . --ext .js,.json",
     "eslint:fix": "npm run eslint --  --fix"
   },

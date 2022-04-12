@@ -1,10 +1,10 @@
-const { merge } = require("webpack-merge");
-const { middleware } = require("@project/helper-config");
-const webpackBaseConfig = require("./webpack.base");
+const { merge } = require('webpack-merge');
+const { middleware } = require('@project/helper-config');
+const webpackBaseConfig = require('./webpack.base');
 
 module.exports = merge(webpackBaseConfig, {
-  mode: "development",
-  devtool: "eval-cheap-module-source-map",
+  mode: 'development',
+  devtool: 'eval-cheap-module-source-map',
   cache: true,
   devServer: {
     historyApiFallback: true,
@@ -15,14 +15,14 @@ module.exports = merge(webpackBaseConfig, {
     proxy: [
       {
         context: [],
-        target: middleware.address + ":" + middleware.port,
+        target: middleware.address + ':' + middleware.port,
         bypass: (req) => {
-          if (req.headers.accept && req.headers.accept.indexOf("html") !== -1) {
-            console.log("Skipping proxy for browser request.");
-            return "/index.html";
+          if (req.headers.accept && req.headers.accept.indexOf('html') !== -1) {
+            console.log('Skipping proxy for browser request.');
+            return '/index.html';
           }
-        },
-      },
-    ],
-  },
+        }
+      }
+    ]
+  }
 });

@@ -1,11 +1,11 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import singleSpaVue from "single-spa-vue";
-import * as Sentry from "@sentry/browser";
-import { Vue as VueIntegration } from "@sentry/integrations";
-import createRequest from "../../utils/request";
-import { sentry } from "@project/helper-config";
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import singleSpaVue from 'single-spa-vue';
+import * as Sentry from '@sentry/browser';
+import { Vue as VueIntegration } from '@sentry/integrations';
+import createRequest from '../../utils/request';
+import { sentry } from '@project/helper-config';
 
 import {
   Layout,
@@ -22,8 +22,8 @@ import {
   message,
   ConfigProvider,
   FormModel,
-  Space,
-} from "ant-design-vue";
+  Space
+} from 'ant-design-vue';
 
 Vue.use(Layout);
 Vue.use(Input);
@@ -48,20 +48,20 @@ Vue.prototype.$error = Modal.error;
 Vue.prototype.$warning = Modal.warning;
 
 Vue.config.productionTip = false;
-Vue.prototype.$http = createRequest(localStorage, "auth");
+Vue.prototype.$http = createRequest(localStorage, 'auth');
 
 sentry.open &&
   Sentry.init({
     dsn: sentry.dsn,
-    integrations: [new VueIntegration({ Vue, attachProps: true })],
+    integrations: [new VueIntegration({ Vue, attachProps: true })]
   });
 
 const vueLifecycles = singleSpaVue({
   Vue,
   appOptions: {
     render: (r) => r(App),
-    router,
-  },
+    router
+  }
 });
 
 export const bootstrap = vueLifecycles.bootstrap;

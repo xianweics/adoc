@@ -1,36 +1,36 @@
-import Koa from "koa";
-import koaStatic from "koa-static";
-import { join, resolve } from "path";
-import { createProxyMiddleware } from "http-proxy-middleware";
-import fs from "fs";
-import jwt from "jsonwebtoken";
+import Koa from 'koa';
+import koaStatic from 'koa-static';
+import { join, resolve } from 'path';
+import { createProxyMiddleware } from 'http-proxy-middleware';
+import fs from 'fs';
+import jwt from 'jsonwebtoken';
 import {
   client as clientConfig,
   middleware as middlewareConfig,
   service as serviceConfig,
   auth as authConfig,
   responseCodeMap,
-  whiteRouter,
-} from "@project/helper-config";
-import { formatFullPath, wrapperResponse } from "@project/helper-utils";
-import { RedisClient } from "@project/service-init";
+  whiteRouter
+} from '@project/helper-config';
+import { formatFullPath, wrapperResponse } from '@project/helper-utils';
+import { RedisClient } from '@project/service-init';
 const redisClient = await RedisClient.getInstance().redisClient;
 
 const { destName, outputHome } = clientConfig;
 const { secretKey, accessTokenExp } = authConfig;
 const app = new Koa();
-app.use(koaStatic(join(resolve(), "..", destName))); // 设置静态资源路径
+app.use(koaStatic(join(resolve(), '..', destName))); // 设置静态资源路径
 app.use(async (ctx, next) => {
-  ctx.set("Access-Control-Allow-Credentials", true); // 请求是否携带认证信息
-  ctx.set("Access-Control-Allow-Origin", "*"); // 指定域名访问
+  ctx.set('Access-Control-Allow-Credentials', true); // 请求是否携带认证信息
+  ctx.set('Access-Control-Allow-Origin', '*'); // 指定域名访问
   ctx.set(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Content-Length, Accept, accessToken, refreshToken, userName"
+    'Access-Control-Allow-Headers',
+    'Content-Type, Content-Length, Accept, accessToken, refreshToken, userName'
   ); // 允许请求的头字段，包括自定义头信息
-  ctx.set("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS"); // 允许请求的类型
+  ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS'); // 允许请求的类型
   // eslint-disable-next-line no-undef
   console.info(`middleware get request url from client: ${ctx.url}`);
-  const serviceName = ctx.url.split("/").filter((item) => item)[0];
+  const serviceName = ctx.url.split('/').filter((item) => item)[0];
   const specificServiceConfig = serviceConfig[serviceName];
   let isPass = false;
 
@@ -39,9 +39,10 @@ app.use(async (ctx, next) => {
     isPass = true;
   } else {
     // 重新获取访问令牌
-    if (ctx.url === "/serviceAuth/setToken") {
+    if (ctx.url === '/serviceAuth/setToken') {
       const refreshToken = ctx.request.header.refreshtoken;
       const userName = ctx.request.header.username;
+      console.info('other');
       const hasRefreshTokenKey = await redisClient.get(refreshToken);
       // 校验刷新令牌
       if (!hasRefreshTokenKey) {
@@ -50,12 +51,12 @@ app.use(async (ctx, next) => {
       } else {
         // 刷新令牌正常，重新生成访问令牌
         const accessTokenRestore = jwt.sign({ userName }, secretKey, {
-          expiresIn: accessTokenExp,
+          expiresIn: accessTokenExp
         });
         ctx.body = wrapperResponse({
           ...responseCodeMap.SUCCESS,
           data: { accessToken: accessTokenRestore },
-          message: null,
+          message: null
         });
         isPass = false;
       }
@@ -64,7 +65,7 @@ app.use(async (ctx, next) => {
       // 校验访客令牌
       jwt.verify(accessToken, secretKey, function (err, result) {
         if (err) {
-          if (err.name === "TokenExpiredError") {
+          if (err.name === 'TokenExpiredError') {
             // 访客令牌过期
             ctx.body = wrapperResponse(responseCodeMap.TOKEN_EXPIRATION);
           } else {
@@ -80,7 +81,7 @@ app.use(async (ctx, next) => {
   }
 
   if (!isPass) return;
-  if (ctx.method === "OPTIONS") {
+  if (ctx.method === 'OPTIONS') {
     ctx.status = 200; // option 预请求放行
   } else if (specificServiceConfig) {
     ctx.response = false; // 绕过koa内置响应处理。使用代理处理请求
@@ -88,14 +89,14 @@ app.use(async (ctx, next) => {
     return createProxyMiddleware({
       target: formatFullPath(specificServiceConfig),
       pathRewrite: {
-        [overwritePath]: "/",
+        [overwritePath]: '/'
       },
-      changeOrigin: true,
+      changeOrigin: true
     })(ctx.req, ctx.res, next);
   } else {
     // 找不到页面时候。使用默认地址
-    ctx.type = "html";
-    ctx.body = fs.createReadStream(join(resolve(), "..", destName, outputHome));
+    ctx.type = 'html';
+    ctx.body = fs.createReadStream(join(resolve(), '..', destName, outputHome));
   }
 });
 

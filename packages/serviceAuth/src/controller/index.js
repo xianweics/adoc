@@ -1,50 +1,51 @@
-import database from "../database/index.js";
-import jwt from "jsonwebtoken";
-import { wrapperResponse } from "@project/helper-utils";
-import { auth, responseCodeMap } from "@project/helper-config";
-import { RedisClient } from "@project/service-init";
-import { redisRefreshTokenEx } from "../redis/config.js";
+import database from '../database/index.js';
+import jwt from 'jsonwebtoken';
+import { wrapperResponse } from '@project/helper-utils';
+import { auth, responseCodeMap } from '@project/helper-config';
+import { RedisClient } from '@project/service-init';
+import { redisRefreshTokenEx } from '../redis/config.js';
 const redisClient = await RedisClient.getInstance().redisClient;
 const { secretKey, accessTokenExp, refreshTokenExp, secretRefreshKey } = auth;
 
 export default {
   getUser: async (ctx) => {
-    const data = await database("get", "user");
+    const data = await database('get', 'user');
     ctx.body = wrapperResponse({
       code: 200,
-      data,
+      data
     });
   },
   delUser: async (ctx) => {
-    const data = await database("del", "user", ctx.params.id);
-    let message = "success";
+    const data = await database('del', 'user', ctx.params.id);
+    let message = 'success';
     if (!data) {
-      message = "fail";
+      message = 'fail';
     }
     ctx.body = wrapperResponse({
       code: 200,
       data,
-      message,
+      message
     });
   },
   addUser: async (ctx) => {
-    const data = await database("post", "user", ctx.request.body);
-    let message = "success";
+    const data = await database('post', 'user', ctx.request.body);
+    let message = 'success';
     if (!data) {
-      message = "fail";
+      message = 'fail';
     }
     ctx.body = wrapperResponse({
       code: 200,
       data,
-      message,
+      message
     });
   },
   login: async (ctx) => {
     const { userName, password } = ctx.request.body;
-    const data = await database("find", "user", {
+    const data = await database('find', 'user', {
       userName,
-      password,
+      password
     });
+    console.info(userName, password);
     // 用户不存在或者密码错误
     if (!data || !data.length) {
       console.log(responseCodeMap.NO_ACCOUNT, 3333);
@@ -53,13 +54,13 @@ export default {
     }
     const { userName: uName, password: pwd, ...restInfo } = data[0];
     const userInfo = {
-      userName: uName,
+      userName: uName
     };
     const accessToken = jwt.sign(userInfo, secretKey, {
-      expiresIn: accessTokenExp,
+      expiresIn: accessTokenExp
     });
     const refreshToken = jwt.sign(userInfo, secretRefreshKey, {
-      expiresIn: refreshTokenExp,
+      expiresIn: refreshTokenExp
     });
 
     // use redis set refreshToken
@@ -68,7 +69,7 @@ export default {
       JSON.stringify({ userName, accessToken }),
       {
         NX: true,
-        EX: redisRefreshTokenEx,
+        EX: redisRefreshTokenEx
       }
     );
     ctx.body = wrapperResponse({
@@ -76,8 +77,8 @@ export default {
       data: {
         accessToken,
         refreshToken,
-        ...restInfo,
-      },
+        ...restInfo
+      }
     });
-  },
+  }
 };

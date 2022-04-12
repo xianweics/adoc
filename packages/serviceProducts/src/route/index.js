@@ -1,6 +1,6 @@
-import Router from "@koa/router";
-import controller from "../controller/index.js";
-import logRecord from "./logRecord.js";
+import Router from '@koa/router';
+import controller from '../controller/index.js';
+import logRecord from './logRecord.js';
 
 export default class Route {
   static init(app) {
@@ -11,9 +11,9 @@ export default class Route {
     });
     const router = new Router();
     const routes = router
-      .get("/goods", controller.getGoods)
-      .del("/goods/:id", controller.delGoods)
-      .post("/goods", controller.addGoods);
+      .get('/goods', controller.getGoods)
+      .del('/goods/:id', controller.delGoods)
+      .post('/goods', controller.addGoods);
     app.use(routes.routes());
   }
 }

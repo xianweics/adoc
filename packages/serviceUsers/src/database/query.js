@@ -1,6 +1,6 @@
-import config from "./config.js";
-import { mysqlPoolQuery } from "@project/helper-utils";
-import { PoolCluster } from "@project/service-init";
+import config from './config.js';
+import { mysqlPoolQuery } from '@project/helper-utils';
+import { PoolCluster } from '@project/service-init';
 
 const poolCluster = PoolCluster.getInstance().poolCluster;
 const { database } = config;
@@ -10,7 +10,7 @@ poolCluster.add(poolKey, {
   host: database.host,
   user: database.username,
   password: database.password,
-  database: database.database,
+  database: database.database
 });
 
 export default function query(sql, values) {

@@ -1,8 +1,8 @@
 export const formatFullPath = ({
-  protocol = "http",
-  address = "localhost",
+  protocol = 'http',
+  address = 'localhost',
   port = 8080,
-  subUrl = "",
+  subUrl = ''
 }) => `${protocol}://${address}:${port}/${subUrl}`;
 
 export const mysqlPoolQuery = function query(
@@ -13,8 +13,11 @@ export const mysqlPoolQuery = function query(
 ) {
   return new Promise((resolve, reject) => {
     poolCluster.of(poolKey).getConnection((err, connection) => {
-      if (err) reject(err);
-
+      console.info(err, 11);
+      if (err) {
+        reject(err);
+        return;
+      }
       connection.query(sql, values, (err, rows) => {
         if (err) reject(err);
 
@@ -26,10 +29,10 @@ export const mysqlPoolQuery = function query(
 };
 
 // 接口返回数据结构
-export const wrapperResponse = ({ code, data, message = "操作成功" }) => {
+export const wrapperResponse = ({ code, data, message = '操作成功' }) => {
   return {
     code,
     data,
-    message,
+    message
   };
 };

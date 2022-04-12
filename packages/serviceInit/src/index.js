@@ -1,6 +1,6 @@
-import mysql from "mysql";
-import redis from "redis";
-import { redisConfig } from "./config.js";
+import mysql from 'mysql';
+import redis from 'redis';
+import { redisConfig } from './config.js';
 
 class PoolCluster {
   constructor() {
@@ -19,7 +19,10 @@ class PoolCluster {
 class RedisClient {
   constructor() {
     const client = redis.createClient(redisConfig);
-    client.on("error", (err) => console.log("Redis Client Error", err));
+    client.on('ready', () => {
+      console.info('redis connected successfully');
+    });
+    client.on('error', (err) => console.log('Redis Client Error', err));
     client.connect();
     this.redisClient = client;
     this._instance = null;

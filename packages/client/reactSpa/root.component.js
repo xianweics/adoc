@@ -1,14 +1,14 @@
-import React from "react";
-import src from "../office365.png";
-import createRequest from "../utils/request";
+import React from 'react';
+import src from '../office365.png';
+import createRequest from '../utils/request';
 
-const request = createRequest(globalThis.localStorage, "react");
+const request = createRequest(globalThis.localStorage, 'react');
 export default class Root extends React.Component {
   state = {
     goodsList: [],
     activeId: 0,
-    name: "",
-    total: 0,
+    name: '',
+    total: 0
   };
 
   componentDidCatch(error, errorInfo) {
@@ -18,37 +18,37 @@ export default class Root extends React.Component {
   changName = (e) => {
     e.persist();
     this.setState({
-      name: e.target.value,
+      name: e.target.value
     });
   };
 
   changeTotal = (e) => {
     e.persist();
     this.setState({
-      total: e.target.value,
+      total: e.target.value
     });
   };
 
   getGoods = async () => {
-    const goodsList = await request.get("goods");
+    const goodsList = await request.get('goods');
     this.setState({
       goodsList,
-      activeId: 0,
+      activeId: 0
     });
   };
 
   delGoods = async () => {
     await request.delete(`goods/${this.state.activeId}`);
-    this.getGoods();
+    await this.getGoods();
   };
 
   addGoods = async () => {
     const { name, total } = this.state;
-    await request.post("goods", {
+    await request.post('goods', {
       name,
-      total,
+      total
     });
-    this.getGoods();
+    await this.getGoods();
   };
 
   renderTableBody = () => {
@@ -60,7 +60,7 @@ export default class Root extends React.Component {
           <tr
             key={index}
             onClick={() => this.changeActiveId(id)}
-            className={activeId === id ? "active" : ""}
+            className={activeId === id ? 'active' : ''}
           >
             <td>{id}</td>
             <td>{name}</td>
@@ -80,7 +80,7 @@ export default class Root extends React.Component {
 
   changeActiveId = (id) => {
     this.setState({
-      activeId: id,
+      activeId: id
     });
   };
 

@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import src from "../office365.png";
+import src from '../office365.png';
 
 export default {
   data() {
@@ -54,13 +54,13 @@ export default {
       imgSrc: src,
       users: [],
       activeId: 0,
-      name: "",
-      age: 0,
+      name: '',
+      age: 0
     };
   },
   methods: {
     async getUsers() {
-      this.users = await this.$http.get("users");
+      this.users = await this.$http.get('users');
       this.activeId = 0;
     },
     async delUser() {
@@ -68,12 +68,12 @@ export default {
       await this.getUsers();
     },
     async addUser() {
-      await this.$http.post("users", {
+      await this.$http.post('users', {
         name: this.name,
-        age: this.age,
+        age: this.age
       });
       await this.getUsers();
-    },
-  },
+    }
+  }
 };
 </script>

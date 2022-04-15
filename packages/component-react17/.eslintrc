@@ -1,0 +1,6 @@
+{
+  "extends": ["@project/eslint-config-react"],
+  "globals": {
+    "localStorage": true
+  }
+}

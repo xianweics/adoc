@@ -1,3 +1,0 @@
-{
-  "extends": ["@project/eslint-config-react"]
-}

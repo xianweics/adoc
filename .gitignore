@@ -13,6 +13,7 @@ packages/log
 #dist
 clientDist
 packages/*/lib/
+dist
 
 #other
 package-lock.json

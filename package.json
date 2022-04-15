@@ -36,5 +36,10 @@
     "husky": "^7.0.4",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.1"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/runtime": "^7.17.9"
   }
 }

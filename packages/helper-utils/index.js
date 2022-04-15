@@ -13,7 +13,6 @@ export const mysqlPoolQuery = function query(
 ) {
   return new Promise((resolve, reject) => {
     poolCluster.of(poolKey).getConnection((err, connection) => {
-      console.info(err, 11);
       if (err) {
         reject(err);
         return;

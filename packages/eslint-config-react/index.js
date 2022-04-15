@@ -1,23 +1,23 @@
 module.exports = {
   root: true,
-  parser: "@babel/eslint-parser",
+  parser: '@babel/eslint-parser',
   settings: {
     react: {
-      version: "detect",
-    },
+      version: 'detect'
+    }
   },
   extends: [
-    "standard",
-    "plugin:json/recommended",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended",
+    'standard',
+    'plugin:json/recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended'
   ],
   parserOptions: {
     requireConfigFile: true,
     ecmaFeatures: {
-      jsx: true,
-    },
-  },
+      jsx: true
+    }
+  }
 };

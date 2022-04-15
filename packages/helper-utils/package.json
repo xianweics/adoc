@@ -6,15 +6,13 @@
   "files": [
     "lib",
     "package.json",
-    "README.md"
+    "README.md",
+    "index.js"
   ],
   "scripts": {
     "dev": "babel index.js -d lib -w",
     "build": "babel index.js -d lib",
     "eslint": "eslint . --ext .js,.json",
     "eslint:fix": "npm run eslint --  --fix"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.16.11"
   }
 }

@@ -2,7 +2,7 @@ const config = {
   database: {
     database: 'products',
     username: 'postgres',
-    password: 'meng52588!',
+    password: '123456',
     port: '5432',
     host: 'localhost'
   }

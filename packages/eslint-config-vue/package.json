@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "eslint": "eslint . --ext .js,.json",
-    "eslint:fix": "npm run eslint -- --fix"
+    "eslint:fix": "pnpm run eslint -- --fix"
   },
   "devDependencies": {
     "eslint-plugin-vue": "^8.5.0",

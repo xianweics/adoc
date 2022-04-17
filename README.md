@@ -4,18 +4,15 @@
 
 - node
 - pnpm 
-- lerna
 
 ## Development
 ```
-lerna bootstrap
+pnpm install
 
-npm run client
+pnpm run dev
 
 <!-- client -->
 client: http://localhost:8089
-
-npm run start
 
 <!-- server -->
 auth service: http://localhost:4002

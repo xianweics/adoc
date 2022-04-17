@@ -9,7 +9,7 @@
     "dev:start": "webpack-dev-server --config ./build/webpack.dev.js --port 8089",
     "build:start": "webpack --config ./build/webpack.build.js",
     "eslint": "eslint . --ext .js,.jsx,.json",
-    "eslint:fix": "npm run eslint -- --fix"
+    "eslint:fix": "pnpm run eslint -- --fix"
   },
   "dependencies": {
     "axios": "^0.26.1",

@@ -2,7 +2,7 @@ import database from '../database/index.js';
 import jwt from 'jsonwebtoken';
 import { wrapperResponse } from '@project/helper-utils';
 import { auth, responseCodeMap } from '@project/helper-config';
-import { RedisClient } from '@project/service-init';
+import { RedisClient } from '@project/helper-service-init';
 import { redisRefreshTokenEx } from '../redis/config.js';
 const redisClient = await RedisClient.getInstance().redisClient;
 const { secretKey, accessTokenExp, refreshTokenExp, secretRefreshKey } = auth;

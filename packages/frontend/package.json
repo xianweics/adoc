@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "@project/frontend",
   "version": "1.0.0",
   "publishConfig": {
     "access": "public"
@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --config ./build/webpack.dev.js --port 8089",
     "build": "webpack --config ./build/webpack.build.js",
     "eslint": "eslint . --ext .js,.jsx,.vue,.json",
-    "eslint:fix": "npm run eslint -- --fix"
+    "eslint:fix": "pnpm run eslint -- --fix"
   },
   "dependencies": {
     "single-spa-vue": "^2.5.1",

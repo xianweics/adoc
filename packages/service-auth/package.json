@@ -1,22 +1,21 @@
 {
-  "name": "service-products",
+  "name": "@project/service-auth",
   "version": "1.0.0",
   "type": "module",
-  "main": "src/index.js",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "dev": "nodemon src/index.js",
     "eslint": "eslint . --ext .js,.json",
-    "eslint:fix": "npm run eslint --  --fix"
+    "eslint:fix": "pnpm run eslint -- --fix"
   },
   "dependencies": {
     "@koa/router": "^10.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "@project/helper-service-init": "^1.0.0",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
-    "log4js": "^6.4.4",
-    "pg": "^8.7.3",
-    "pg-pool": "^3.5.1"
+    "log4js": "^6.4.4"
   }
 }

@@ -9,7 +9,7 @@
     "dev:start": "webpack-dev-server --config ./build/webpack.dev.js --port 8089",
     "build:start": "webpack --config ./build/webpack.build.js",
     "eslint": "eslint . --ext .js,.vue,.json",
-    "eslint:fix": "npm run eslint -- --fix"
+    "eslint:fix": "pnpm run eslint -- --fix"
   },
   "dependencies": {
     "ant-design-vue": "^3.1.1",

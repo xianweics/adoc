@@ -13,10 +13,11 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "dev": "lerna run dev --stream",
-    "build": "lerna run build",
-    "eslint": "lerna run eslint",
-    "eslint:fix": "lerna run eslint:fix"
+    "dev": "pnpm run client:start & pnpm run service:start",
+    "client:start": "pnpm --filter '@project/frontend' dev --stream",
+    "service:start": "pnpm --filter '@project/service-*' dev --stream",
+    "eslint": "pnpm --filter '@project/*' eslint",
+    "eslint:fix": "pnpm --filter '@project/*' eslint:fix"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",

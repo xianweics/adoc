@@ -1,8 +1,10 @@
 import config from './config.js';
 import { mysqlPoolQuery } from '@project/helper-utils';
-import { PoolCluster } from '@project/service-init';
+
+import { PoolCluster } from '@project/helper-service-init';
 
 const poolCluster = PoolCluster.getInstance().poolCluster;
+
 const { database } = config;
 const poolKey = database.database;
 

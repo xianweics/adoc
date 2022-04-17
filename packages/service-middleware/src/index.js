@@ -13,7 +13,7 @@ import {
   whiteRouter
 } from '@project/helper-config';
 import { formatFullPath, wrapperResponse } from '@project/helper-utils';
-import { RedisClient } from '@project/service-init';
+import { RedisClient } from '@project/helper-service-init';
 const redisClient = await RedisClient.getInstance().redisClient;
 
 const { destName, outputHome } = clientConfig;

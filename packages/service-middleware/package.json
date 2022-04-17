@@ -1,0 +1,21 @@
+{
+  "name": "@project/service-middleware",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "eslint": "eslint . --ext .js,.json",
+    "eslint:fix": "pnpm run eslint -- --fix"
+  },
+  "dependencies": {
+    "http-proxy-middleware": "^2.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0",
+    "@project/helper-service-init": "^1.0.0"
+  }
+}

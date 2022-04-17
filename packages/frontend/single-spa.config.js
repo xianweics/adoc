@@ -18,10 +18,10 @@ registerApplication(
   pathPrefix('/react-spa')
 );
 
-// registerApplication(
-//   'auth-spa',
-//   () => import('./authSpa/src/main.js'),
-//   pathPrefix('/auth-spa', '/')
-// );
+registerApplication(
+  'auth-spa',
+  () => import('./authSpa/src/main.js'),
+  pathPrefix('/auth-spa', '/')
+);
 
 start();

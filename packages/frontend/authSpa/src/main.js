@@ -3,7 +3,7 @@ import App from './App.vue';
 import router from './router';
 import singleSpaVue from 'single-spa-vue';
 import createRequest from '../../utils/request';
-
+import 'ant-design-vue/dist/antd.css';
 import {
   Layout,
   Input,

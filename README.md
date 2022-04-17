@@ -105,8 +105,35 @@ socket: {
 ```
 
 ### TODOLIST
-```
-1. 支持不同版本 vue/react
-2. 完善webpack配置
-3. api权限
-```
+
+#### version 1
+- 支持不同版本 vue/react
+- 完善webpack配置
+- 阿波罗gateway接入 - 支持Redis权限校验 - graphql  
+- docker image
+- k8s 调用
+- 数据库初始化脚本
+- readme 使用文档更新
+
+#### version 2
+- ci cd 环境
+- docker image ci cd
+- 可视化，可配置初始化项目
+- readme 使用文档更新
+- sharing........
+
+#### version 3
+- 引入git flow，源码审核流程
+- 项目引入ts，单元测试
+- 支持vite, rollup打包，单元测试配置
+- 支持微前端qiankun构建、单独部署
+- 支持可配置mongodb、oracle数据库
+- 支持可配置ci cd
+- readme 使用文档更新
+
+#### version 4
+- 单元测试
+- 支持每个package热插拔式单独打包
+- 支持每个package单独可视化
+- 初始化更简单的demo
+- readme 使用文档更新

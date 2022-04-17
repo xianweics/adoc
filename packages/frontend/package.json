@@ -11,6 +11,7 @@
     "eslint:fix": "npm run eslint -- --fix"
   },
   "dependencies": {
+    "single-spa-vue": "^2.5.1",
     "@project/component-react17": "^1.0.0",
     "@project/component-vue2": "^1.0.0",
     "ant-design-vue": "^1.7.8",

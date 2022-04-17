@@ -6,8 +6,8 @@
   },
   "main": "single.entry.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./build/webpack.dev.js --port 8089",
-    "build": "webpack --config ./build/webpack.build.js",
+    "dev:start": "webpack-dev-server --config ./build/webpack.dev.js --port 8089",
+    "build:start": "webpack --config ./build/webpack.build.js",
     "eslint": "eslint . --ext .js,.jsx,.json",
     "eslint:fix": "npm run eslint -- --fix"
   },

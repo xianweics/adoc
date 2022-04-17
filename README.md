@@ -116,13 +116,15 @@ socket: {
 - readme 使用文档更新
 
 #### version 2
-- ci cd 环境
+- ci cd 环境: jenkins, gitlab/github, sonar
 - docker image ci cd
-- 可视化，可配置初始化项目
 - readme 使用文档更新
 - sharing........
 
 #### version 3
+- 可视化，可配置初始化项目
+
+#### version 4
 - 引入git flow，源码审核流程
 - 项目引入ts，单元测试
 - 支持vite, rollup打包，单元测试配置
@@ -131,9 +133,22 @@ socket: {
 - 支持可配置ci cd
 - readme 使用文档更新
 
-#### version 4
+#### version 5
 - 单元测试
 - 支持每个package热插拔式单独打包
 - 支持每个package单独可视化
 - 初始化更简单的demo
 - readme 使用文档更新
+
+#### version 6
+- 预发布：内网、外网部署
+- 发布：灰度发布策略，回滚机制
+- 日志：整合分析策略
+- 监控：前端/sentry? 
+- 后端：普罗米修斯/pm2等
+
+#### version 7
+- 动态可视化流程架构图
+- 可添加式的架构
+
+

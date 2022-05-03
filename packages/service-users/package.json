@@ -1,5 +1,5 @@
 {
-  "name": "nc/service-users",
+  "name": "@adoc/service-users",
   "version": "1.0.0",
   "type": "module",
   "publishConfig": {

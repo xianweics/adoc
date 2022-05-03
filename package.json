@@ -1,15 +1,15 @@
 {
-  "name": "nc",
+  "name": "adoc",
   "version": "0.0.1",
   "license": "ISC",
-  "homepage": "https://github.com/xianweics/nc",
+  "homepage": "https://github.com/xianweics/adoc",
   "description": "micro-frontend + middleware + gateway + multi-service",
   "workspaces": [
     "packages/*"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xianweics/nc.git"
+    "url": "git+https://github.com/xianweics/adoc.git"
   },
   "scripts": {
     "prepare": "husky install",

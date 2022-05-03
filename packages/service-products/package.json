@@ -1,5 +1,5 @@
 {
-  "name": "nc/service-products",
+  "name": "@adoc/service-products",
   "version": "1.0.0",
   "type": "module",
   "main": "src/index.js",

@@ -1,5 +1,5 @@
 {
-  "name": "nc/service-middleware",
+  "name": "@adoc/service-middleware",
   "version": "1.0.0",
   "type": "module",
   "main": "src/index.js",

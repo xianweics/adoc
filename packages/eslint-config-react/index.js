@@ -15,9 +15,6 @@ module.exports = {
     'plugin:prettier/recommended'
   ],
   parserOptions: {
-    requireConfigFile: true,
-    ecmaFeatures: {
-      jsx: true
-    }
+    requireConfigFile: true
   }
 };

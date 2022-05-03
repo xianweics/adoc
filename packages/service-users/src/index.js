@@ -1,6 +1,6 @@
 import Koa from 'koa';
 import route from './route/index.js';
-import { service } from '@project/helper-config';
+import { service } from '@adoc/helper-config';
 import bodyParser from 'koa-bodyparser';
 
 const { port, address, protocol } = service.serviceUsers;

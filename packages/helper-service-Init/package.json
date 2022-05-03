@@ -1,5 +1,5 @@
 {
-  "name": "@project/helper-service-init",
+  "name": "@adoc/helper-service-init",
   "version": "1.0.0",
   "type": "module",
   "main": "src/index.js",

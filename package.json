@@ -1,37 +1,37 @@
 {
-  "name": "fullstack",
+  "name": "nc",
   "version": "0.0.1",
   "license": "ISC",
-  "homepage": "https://github.com/xianweics/project",
+  "homepage": "https://github.com/xianweics/nc",
   "description": "micro-frontend + middleware + gateway + multi-service",
   "workspaces": [
     "packages/*"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xianweics/project.git"
+    "url": "git+https://github.com/xianweics/nc.git"
   },
   "scripts": {
     "prepare": "husky install",
     "dev": "pnpm run client:start & pnpm run service:start",
-    "client:start": "pnpm --filter '@project/frontend' dev --stream",
-    "service:start": "pnpm --filter '@project/service-*' dev --stream",
-    "eslint": "pnpm --filter '@project/*' eslint",
-    "eslint:fix": "pnpm --filter '@project/*' eslint:fix"
+    "client:start": "pnpm --filter '@adoc/frontend' dev --stream",
+    "service:start": "pnpm --filter '@adoc/service-*' dev --stream",
+    "eslint": "pnpm --filter '@adoc/*' eslint",
+    "eslint:fix": "pnpm --filter '@adoc/*' eslint:fix"
   },
   "devDependencies": {
+    "@adoc/helper-config": "workspace:^1.0.1",
+    "@adoc/helper-utils": "workspace:^1.0.0",
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
     "@babel/eslint-parser": "^7.17.0",
     "@babel/node": "^7.16.8",
-    "@project/helper-config": "workspace:^1.0.1",
-    "@project/helper-utils": "workspace:^1.0.0",
     "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-json": "^3.1.0",
-    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "husky": "^7.0.4",

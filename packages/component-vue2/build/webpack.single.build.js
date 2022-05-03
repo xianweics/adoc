@@ -1,24 +1,24 @@
+const CompressionPlugin = require('compression-webpack-plugin');
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { WebpackFilemanager } = require('filemanager-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-const { clientDest, projectRoot, publicPath, clientSrc } = require('./config');
-const { client: clientConfig } = require('@adoc/helper-config');
-const ESLintPlugin = require('eslint-webpack-plugin');
+const joinProjectRoot = (p = '/') => path.join(__dirname, '..', p);
+
 module.exports = {
-  entry: {
-    'single-spa-config': projectRoot('single-spa.config.js')
-  },
+  entry: joinProjectRoot('single.entry.js'),
   output: {
-    publicPath: publicPath,
-    filename: '[name].[hash:5].js',
-    path: clientDest(),
-    chunkFilename: '[name].[chunkhash:5].chunk.js'
+    clean: true,
+    filename: 'demo.vue2.[name].js',
+    library: 'demoVue2',
+    libraryTarget: 'amd',
+    path: path.join(__dirname, '..', 'temp')
   },
+  mode: 'production',
+  devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: ['thread-loader', 'babel-loader']
       },
@@ -100,40 +100,14 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.json', '.vue', '.jsx'],
-    alias: {
-      vue: 'vue/dist/vue.js',
-      '@root': projectRoot()
-    }
+    extensions: ['.js', '.json', '.vue']
   },
   plugins: [
-    new ESLintPlugin({
-      lintDirtyModulesOnly: false,
-      extensions: ['js', 'json', 'jsx', 'vue'],
-      context: projectRoot()
-    }),
-    new WebpackFilemanager({
-      events: {
-        start: {
-          del: {
-            items: [clientDest()]
-          }
-        }
-      }
-    }),
-    new HtmlWebpackPlugin({
-      template: clientSrc(clientConfig.entryHome),
-      favicon: clientSrc('favicon.ico'),
-      date: new Date().toUTCString(),
-      filename: clientConfig.outputHome,
-      minify: {
-        collapseWhitespace: true
-      }
-    }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash:5].css',
       chunkFilename: 'css/[name].[chunkhash:5].css'
-    })
+    }),
+    new CompressionPlugin()
   ]
 };

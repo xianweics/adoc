@@ -104,12 +104,11 @@ socket: {
 ### TODOLIST
 
 #### version 1
-- 支持不同版本 vue/react
-- 完善webpack配置
-- 阿波罗gateway接入 - 支持Redis权限校验 - graphql  
-- docker image
+- 支持不同版本 vue3/react16?
+- 阿波罗gateway接入 - 支持Redis权限校验 - graphql
+- docker image 
 - k8s 调用
-- 数据库初始化脚本
+- 数据库初始化脚本: docker init
 - readme 使用文档更新
 
 #### version 2
@@ -123,17 +122,16 @@ socket: {
 
 #### version 4
 - 引入git flow，源码审核流程
-- 项目引入ts，单元测试
+- 项目引入ts，单元测试, webpack更多插件
 - 支持vite, rollup打包，单元测试配置
 - 支持微前端qiankun构建、单独部署
-- 支持可配置mongodb、oracle数据库
+- 支持可配置mongodb、oracle、memocache数据库
 - 支持可配置ci cd
 - readme 使用文档更新
 
 #### version 5
-- 单元测试
+- 写单元测试
 - 支持每个package热插拔式单独打包
-- 支持每个package单独可视化
 - 初始化更简单的demo
 - readme 使用文档更新
 
@@ -142,10 +140,11 @@ socket: {
 - 发布：灰度发布策略，回滚机制
 - 日志：整合分析策略
 - 监控：前端/sentry? 
-- 后端：普罗米修斯/pm2等
+- 后端：普罗米修斯 - 微服务/pm2可视化等
 
 #### version 7
 - 动态可视化流程架构图
 - 可添加式的架构
 
+### 补充
 

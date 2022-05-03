@@ -1,3 +1,3 @@
 {
-  "extends": ["@project/eslint-config-vue"]
+  "extends": ["@adoc/eslint-config-vue"]
 }

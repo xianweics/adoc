@@ -1,6 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { WebpackFilemanager } = require('filemanager-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
@@ -9,6 +8,7 @@ const joinProjectRoot = (p = '/') => path.join(__dirname, '..', p);
 module.exports = {
   entry: path.join(__dirname, '..', 'src/index.js'),
   output: {
+    clean: true,
     publicPath: '/',
     filename: '[name].[hash:5].js',
     path: joinProjectRoot('dist'),
@@ -106,15 +106,6 @@ module.exports = {
       lintDirtyModulesOnly: false,
       extensions: ['js', 'json', 'vue'],
       context: joinProjectRoot()
-    }),
-    new WebpackFilemanager({
-      events: {
-        start: {
-          del: {
-            items: [joinProjectRoot('dist')]
-          }
-        }
-      }
     }),
     new HtmlWebpackPlugin({
       template: joinProjectRoot('index.html'),

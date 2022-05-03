@@ -1,5 +1,5 @@
 {
-  "name": "@project/component-vue3-auth",
+  "name": "@adoc/component-vue3-auth",
   "version": "1.0.0",
   "publishConfig": {
     "access": "public"
@@ -19,7 +19,7 @@
     "vue-router": "^4.0.14"
   },
   "devDependencies": {
-    "@project/eslint-config-vue": "^1.0.0",
+    "@adoc/eslint-config-vue": "^1.0.0",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "compression-webpack-plugin": "^9.2.0",

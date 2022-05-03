@@ -1,5 +1,5 @@
 const path = require('path');
-const { client: clientConfig } = require('@project/helper-config');
+const { client: clientConfig } = require('@adoc/helper-config');
 
 const config = {
   clientSrc: (dir = '/') =>

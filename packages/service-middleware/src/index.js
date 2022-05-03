@@ -11,9 +11,9 @@ import {
   auth as authConfig,
   responseCodeMap,
   whiteRouter
-} from '@project/helper-config';
-import { formatFullPath, wrapperResponse } from '@project/helper-utils';
-import { RedisClient } from '@project/helper-service-init';
+} from '@adoc/helper-config';
+import { formatFullPath, wrapperResponse } from '@adoc/helper-utils';
+import { RedisClient } from '@adoc/helper-service-init';
 const redisClient = await RedisClient.getInstance().redisClient;
 
 const { destName, outputHome } = clientConfig;

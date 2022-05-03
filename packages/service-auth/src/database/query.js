@@ -1,7 +1,7 @@
 import config from './config.js';
-import { mysqlPoolQuery } from '@project/helper-utils';
+import { mysqlPoolQuery } from '@adoc/helper-utils';
 
-import { PoolCluster } from '@project/helper-service-init';
+import { PoolCluster } from '@adoc/helper-service-init';
 
 const poolCluster = PoolCluster.getInstance().poolCluster;
 

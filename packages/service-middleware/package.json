@@ -1,5 +1,5 @@
 {
-  "name": "@project/service-middleware",
+  "name": "nc/service-middleware",
   "version": "1.0.0",
   "type": "module",
   "main": "src/index.js",
@@ -16,6 +16,6 @@
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.4",
     "koa-static": "^5.0.0",
-    "@project/helper-service-init": "^1.0.0"
+    "@adoc/helper-service-init": "^1.0.0"
   }
 }

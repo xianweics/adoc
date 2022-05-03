@@ -1,5 +1,5 @@
 {
-  "name": "@project/helper-utils",
+  "name": "@adoc/helper-utils",
   "version": "1.0.0",
   "main": "lib/index.js",
   "module": "index.js",

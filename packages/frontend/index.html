@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <title>micro-frontend</title>
     <meta content="<%= htmlWebpackPlugin.options.date %>" />
+    <script type="systemjs-importmap" src="./import-map.json"></script>
+    <script>
+      System.import('@portal/config');
+    </script>
   </head>
   <body>
     <div class="wrapper">
-      <a href="/react-spa" class="item">React spa</a>
-      <a href="/vue-spa" class="item">Vue spa</a>
-      <a href="/auth-spa" class="item">Auth spa</a>
+      <a href="/react17" class="item">React spa</a>
+      <a href="/vue2" class="item">Vue spa</a>
+      <a href="/vue3-auth" class="item">Auth spa</a>
     </div>
   </body>
 </html>

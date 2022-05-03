@@ -1,16 +1,40 @@
 {
-  "name": "@project/eslint-config-react",
-  "version": "1.0.0",
+  "name": "@adoc/eslint-config-react",
+  "version": "1.0.4",
   "main": "index.js",
+  "description": "Customize eslint for react",
+  "homepage": "https://github.com/xianweics/nc",
   "files": [
-    "index.js"
+    "index.js",
+    "package.json",
+    "README.md"
   ],
+  "keywords": [
+    "eslint",
+    "prettier",
+    "json",
+    "react",
+    "standard"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xianweics/adoc.git"
+  },
   "scripts": {
-    "eslint": "eslint . --ext .js,.json",
+    "eslint": "eslint .",
     "eslint:fix": "pnpm run eslint -- --fix"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.3.0"
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-n": "^15.2.0"
   }
 }

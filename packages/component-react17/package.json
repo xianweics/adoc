@@ -1,5 +1,5 @@
 {
-  "name": "@project/component-react17",
+  "name": "@adoc/component-react17",
   "version": "1.0.0",
   "publishConfig": {
     "access": "public"
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.16.7",
-    "@project/eslint-config-react": "^1.0.0",
+    "@adoc/eslint-config-react": "^1.0.0",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "compression-webpack-plugin": "^9.2.0",

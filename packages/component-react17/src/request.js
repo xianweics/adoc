@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { middleware } from '@project/helper-config';
-import { formatFullPath } from '@project/helper-utils';
+import { middleware } from '@adoc/helper-config';
+import { formatFullPath } from '@adoc/helper-utils';
 console.info(middleware, 11);
 const createRequest = () => {
   const { protocol, address, port, service } = middleware;

@@ -1,5 +1,5 @@
 import database from '../database/index.js';
-import { wrapperResponse } from '@project/helper-utils';
+import { wrapperResponse } from '@adoc/helper-utils';
 
 export default {
   getGoods: async (ctx) => {

@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge');
-const { middleware } = require('@project/helper-config');
+const { middleware } = require('@adoc/helper-config');
 const webpackBaseConfig = require('./webpack.base');
 
 module.exports = merge(webpackBaseConfig, {

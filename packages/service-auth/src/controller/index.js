@@ -1,12 +1,51 @@
 import database from '../database/index.js';
 import jwt from 'jsonwebtoken';
 import { wrapperResponse } from '@adoc/helper-utils';
-import { auth, responseCodeMap } from '@adoc/helper-config';
-import { RedisClient } from '@adoc/helper-service-init';
+import { RedisClient } from './utils';
 import { redisRefreshTokenEx } from '../redis/config.js';
 const redisClient = await RedisClient.getInstance().redisClient;
+const auth = {
+  secretKey: 'MICRO_SECRET_AUTH_KEY',
+  secretRefreshKey: 'MICRO_SECRET_AUTH_REFRESH_KEY',
+  accessTokenExp: '10m',
+  refreshTokenExp: '24h'
+};
 const { secretKey, accessTokenExp, refreshTokenExp, secretRefreshKey } = auth;
-
+const responseCodeMap = {
+  NO_ACCOUNT: {
+    code: 30001,
+    data: null,
+    message: '用户名或者密码错误'
+  },
+  TOKEN_EXPIRATION: {
+    code: 30002,
+    data: null,
+    message: '访问令牌过期'
+  },
+  TOKEN_ERROR: {
+    code: 30003,
+    data: null,
+    message: '访问令牌无效'
+  },
+  REFRESH_TOKEN_EXPIRATION: {
+    code: 30004,
+    data: null,
+    message: '刷新令牌过期'
+  },
+  REFRESH_TOKEN_ERROR: {
+    code: 30004,
+    data: null,
+    message: '刷新令牌无效'
+  },
+  SUCCESS: {
+    code: 200,
+    message: '操作成功'
+  },
+  ERROR: {
+    code: 9,
+    message: '操作失败'
+  }
+};
 export default {
   getUser: async (ctx) => {
     const data = await database('get', 'user');

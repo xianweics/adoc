@@ -1,16 +1,20 @@
 import axios from 'axios';
 import { message } from 'ant-design-vue';
-import { middleware } from '@adoc/helper-config';
 import { formatFullPath } from '@adoc/helper-utils';
+const config = {
+  port: 2000,
+  address: '127.0.0.1',
+  protocol: 'http'
+};
 
-const createRequest = (localStorage, subUrlKey) => {
-  const { protocol, address, port, service } = middleware;
+const createRequest = () => {
+  const { protocol, address, port } = config;
   const request = axios.create({
     baseURL: formatFullPath({
       protocol,
       address,
       port,
-      subUrl: service[subUrlKey]
+      subUrl: 'serviceAuth'
     })
     // withCredentials: true
   });

@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@koa/router": "^10.1.1",
-    "@adoc/helper-service-init": "^1.0.0",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
-    "log4js": "^6.4.4"
+    "log4js": "^6.4.4",
+    "mysql": "^2.18.1"
   }
 }

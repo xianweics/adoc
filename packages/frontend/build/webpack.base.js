@@ -2,15 +2,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { WebpackFilemanager } = require('filemanager-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-const { clientDest, projectRoot, publicPath, clientSrc } = require('./config');
-const { client: clientConfig } = require('@adoc/helper-config');
+const { clientDest, projectRoot, publicPath } = require('./config');
 const ESLintPlugin = require('eslint-webpack-plugin');
+
 module.exports = {
   entry: {
     'single-spa-config': projectRoot('single-spa.config.js')
   },
   output: {
-    publicPath: publicPath,
+    publicPath,
     filename: '[name].[hash:5].js',
     path: clientDest(),
     chunkFilename: '[name].[chunkhash:5].chunk.js'
@@ -122,10 +122,10 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: clientSrc(clientConfig.entryHome),
-      favicon: clientSrc('favicon.ico'),
+      template: projectRoot('index.html'),
+      favicon: projectRoot('favicon.ico'),
       date: new Date().toUTCString(),
-      filename: clientConfig.outputHome,
+      filename: 'index.html',
       minify: {
         collapseWhitespace: true
       }

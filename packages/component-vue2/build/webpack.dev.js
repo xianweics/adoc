@@ -1,6 +1,11 @@
 const { merge } = require('webpack-merge');
-const { middleware } = require('@adoc/helper-config');
 const webpackBaseConfig = require('./webpack.base');
+const config = {
+  port: 8080,
+  targetPort: 2000,
+  targetAddress: '127.0.0.1',
+  isHttps: false
+};
 
 module.exports = merge(webpackBaseConfig, {
   mode: 'development',
@@ -8,14 +13,14 @@ module.exports = merge(webpackBaseConfig, {
   cache: true,
   devServer: {
     historyApiFallback: true,
-    https: middleware.isHttps,
-    port: 8080,
+    https: config.isHttps,
+    port: config.port,
     hot: true,
     open: true,
     proxy: [
       {
         context: [],
-        target: middleware.address + ':' + middleware.port,
+        target: config.targetAddress + ':' + config.targetPort,
         bypass: (req) => {
           if (req.headers.accept && req.headers.accept.indexOf('html') !== -1) {
             console.log('Skipping proxy for browser request.');

@@ -4,7 +4,6 @@ importers:
 
   .:
     specifiers:
-      '@adoc/helper-config': workspace:^1.0.1
       '@adoc/helper-utils': workspace:^1.0.0
       '@babel/cli': ^7.17.6
       '@babel/core': ^7.17.8
@@ -29,7 +28,6 @@ importers:
       '@babel/preset-env': 7.16.11_@babel+core@7.17.9
       '@babel/runtime': 7.17.9
     devDependencies:
-      '@adoc/helper-config': link:packages/helper-config
       '@adoc/helper-utils': link:packages/helper-utils
       '@babel/cli': 7.17.6_@babel+core@7.17.9
       '@babel/core': 7.17.9
@@ -236,39 +234,17 @@ importers:
 
   packages/eslint-config-react:
     specifiers:
-      '@babel/eslint-parser': ^7.17.0
-      eslint-config-prettier: ^8.5.0
-      eslint-config-standard: ^17.0.0
-      eslint-plugin-import: ^2.25.4
-      eslint-plugin-json: ^3.1.0
-      eslint-plugin-n: ^15.2.0
       eslint-plugin-react: ^7.29.4
       eslint-plugin-react-hooks: ^4.3.0
     devDependencies:
-      '@babel/eslint-parser': 7.17.0_@babel+core@7.17.9+eslint@8.12.0
-      eslint-config-prettier: 8.5.0_eslint@8.12.0
-      eslint-config-standard: 17.0.0_ff95689c74803f20914d75a4fbaef3b8
-      eslint-plugin-import: 2.26.0_eslint@8.12.0
-      eslint-plugin-json: 3.1.0
-      eslint-plugin-n: 15.2.0_eslint@8.12.0
       eslint-plugin-react: 7.29.4_eslint@8.12.0
       eslint-plugin-react-hooks: 4.5.0_eslint@8.12.0
 
   packages/eslint-config-vue:
     specifiers:
-      eslint-config-prettier: ^8.5.0
-      eslint-config-standard: ^17.0.0
-      eslint-plugin-import: ^2.25.4
-      eslint-plugin-json: ^3.1.0
-      eslint-plugin-n: ^15.2.0
       eslint-plugin-vue: ^8.5.0
       vue-eslint-parser: ^8.3.0
     devDependencies:
-      eslint-config-prettier: 8.5.0_eslint@8.12.0
-      eslint-config-standard: 17.0.0_ff95689c74803f20914d75a4fbaef3b8
-      eslint-plugin-import: 2.26.0_eslint@8.12.0
-      eslint-plugin-json: 3.1.0
-      eslint-plugin-n: 15.2.0_eslint@8.12.0
       eslint-plugin-vue: 8.6.0_eslint@8.12.0
       vue-eslint-parser: 8.3.0_eslint@8.12.0
 
@@ -353,49 +329,40 @@ importers:
       webpack-dev-server: 4.8.1_webpack-cli@4.9.2+webpack@5.71.0
       webpack-merge: 5.8.0
 
-  packages/helper-config:
-    specifiers: {}
-
-  packages/helper-service-Init:
-    specifiers:
-      mysql: ^2.18.1
-      redis: ^4.0.6
-    dependencies:
-      mysql: 2.18.1
-      redis: 4.0.6
-
   packages/helper-utils:
     specifiers: {}
 
   packages/service-auth:
     specifiers:
-      '@adoc/helper-service-init': ^1.0.0
       '@koa/router': ^10.1.1
       jsonwebtoken: ^8.5.1
       koa: ^2.13.4
       koa-bodyparser: ^4.3.0
       log4js: ^6.4.4
+      mysql: ^2.18.1
+      redis: ^4.0.6
     dependencies:
-      '@adoc/helper-service-init': link:../helper-service-Init
       '@koa/router': 10.1.1
       jsonwebtoken: 8.5.1
       koa: 2.13.4
       koa-bodyparser: 4.3.0
       log4js: 6.4.4
+      mysql: 2.18.1
+      redis: 4.0.6
 
   packages/service-middleware:
     specifiers:
-      '@adoc/helper-service-init': ^1.0.0
       http-proxy-middleware: ^2.0.4
       jsonwebtoken: ^8.5.1
       koa: ^2.13.4
       koa-static: ^5.0.0
+      redis: ^4.0.6
     dependencies:
-      '@adoc/helper-service-init': link:../helper-service-Init
       http-proxy-middleware: 2.0.4
       jsonwebtoken: 8.5.1
       koa: 2.13.4
       koa-static: 5.0.0
+      redis: 4.0.6
 
   packages/service-products:
     specifiers:
@@ -415,17 +382,17 @@ importers:
 
   packages/service-users:
     specifiers:
-      '@adoc/helper-service-init': ^1.0.0
       '@koa/router': ^10.1.1
       koa: ^2.13.4
       koa-bodyparser: ^4.3.0
       log4js: ^6.4.4
+      mysql: ^2.18.1
     dependencies:
-      '@adoc/helper-service-init': link:../helper-service-Init
       '@koa/router': 10.1.1
       koa: 2.13.4
       koa-bodyparser: 4.3.0
       log4js: 6.4.4
+      mysql: 2.18.1
 
 packages:
 
@@ -2238,7 +2205,7 @@ packages:
       webpack-cli: 4.x.x
     dependencies:
       webpack: 5.71.0_webpack-cli@4.9.2
-      webpack-cli: 4.9.2_9dd875af91c497d1f115bd79abd782a6
+      webpack-cli: 4.9.2_474871b808d47a92b0b35c8948477ac3
     dev: true
 
   /@webpack-cli/info/1.4.1_webpack-cli@4.9.2:
@@ -2247,7 +2214,7 @@ packages:
       webpack-cli: 4.x.x
     dependencies:
       envinfo: 7.8.1
-      webpack-cli: 4.9.2_9dd875af91c497d1f115bd79abd782a6
+      webpack-cli: 4.9.2_474871b808d47a92b0b35c8948477ac3
     dev: true
 
   /@webpack-cli/serve/1.6.1_8b27d5839a2bdf89ba2338e4c89fea10:
@@ -2259,7 +2226,7 @@ packages:
       webpack-dev-server:
         optional: true
     dependencies:
-      webpack-cli: 4.9.2_9dd875af91c497d1f115bd79abd782a6
+      webpack-cli: 4.9.2_474871b808d47a92b0b35c8948477ac3
       webpack-dev-server: 4.8.1_webpack-cli@4.9.2+webpack@5.71.0
     dev: true
 
@@ -4743,7 +4710,7 @@ packages:
     dev: true
 
   /isarray/1.0.0:
-    resolution: {integrity: sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==}
+    resolution: {integrity: sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=}
 
   /isexe/2.0.0:
     resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=}
@@ -6127,12 +6094,12 @@ packages:
     dev: true
 
   /redis-errors/1.2.0:
-    resolution: {integrity: sha512-1qny3OExCf0UvUV/5wpYKf2YwPcOqXzkwKKSmKHiE6ZMQs5heeE/c8eXK+PNllPvmjgAbfnsbpkGZWy8cBpn9w==}
+    resolution: {integrity: sha1-62LSrbFeTq9GEMBK/hUpOEJQq60=}
     engines: {node: '>=4'}
     dev: false
 
   /redis-parser/3.0.0:
-    resolution: {integrity: sha512-DJnGAeenTdpMEH6uAJRK/uiyEIH9WVsUmoLwzudwGJUwZPp80PDBWPHXSAGNPwNvIXAbe7MSUB1zQFugFml66A==}
+    resolution: {integrity: sha1-tm2CjNyv5rS4pCin3vTGvKwxyLQ=}
     engines: {node: '>=4'}
     dependencies:
       redis-errors: 1.2.0
@@ -6650,7 +6617,7 @@ packages:
     dev: false
 
   /sqlstring/2.3.1:
-    resolution: {integrity: sha512-ooAzh/7dxIG5+uDik1z/Rd1vli0+38izZhGzSa34FwR7IbelPWCCKSNIl8jlL/F7ERvy8CB2jNeM1E9i9mXMAQ==}
+    resolution: {integrity: sha1-R1OT/56RR5rqYtyvDKPRSYOn+0A=}
     engines: {node: '>= 0.6'}
     dev: false
 
@@ -7036,7 +7003,7 @@ packages:
     dev: true
 
   /util-deprecate/1.0.2:
-    resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+    resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}
 
   /utila/0.4.0:
     resolution: {integrity: sha1-ihagXURWV6Oupe7MWxKk+lN5dyw=}
@@ -7373,7 +7340,7 @@ packages:
       sockjs: 0.3.24
       spdy: 4.0.2
       webpack: 5.71.0_webpack-cli@4.9.2
-      webpack-cli: 4.9.2_9dd875af91c497d1f115bd79abd782a6
+      webpack-cli: 4.9.2_474871b808d47a92b0b35c8948477ac3
       webpack-dev-middleware: 5.3.1_webpack@5.71.0
       ws: 8.5.0
     transitivePeerDependencies:
@@ -7429,7 +7396,7 @@ packages:
       tapable: 2.2.1
       terser-webpack-plugin: 5.3.1_webpack@5.71.0
       watchpack: 2.3.1
-      webpack-cli: 4.9.2_9dd875af91c497d1f115bd79abd782a6
+      webpack-cli: 4.9.2_474871b808d47a92b0b35c8948477ac3
       webpack-sources: 3.2.3
     transitivePeerDependencies:
       - '@swc/core'

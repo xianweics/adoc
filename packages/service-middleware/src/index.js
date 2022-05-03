@@ -4,16 +4,80 @@ import { join, resolve } from 'path';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import fs from 'fs';
 import jwt from 'jsonwebtoken';
-import {
-  client as clientConfig,
-  middleware as middlewareConfig,
-  service as serviceConfig,
-  auth as authConfig,
-  responseCodeMap,
-  whiteRouter
-} from '@adoc/helper-config';
+
 import { formatFullPath, wrapperResponse } from '@adoc/helper-utils';
-import { RedisClient } from '@adoc/helper-service-init';
+import { RedisClient } from './utils';
+
+const clientConfig = {
+  srcName: '',
+  destName: 'clientDist',
+  entryHome: 'index.html',
+  outputHome: 'index.html'
+};
+const middlewareConfig = {
+  port: 2000,
+  address: '127.0.0.1'
+};
+const serviceUsers = 'serviceUsers';
+const serviceProducts = 'serviceProducts';
+const serviceAuth = 'serviceAuth';
+const serviceConfig = {
+  [serviceUsers]: {
+    port: 4000,
+    address: '127.0.0.1',
+    protocol: 'http'
+  },
+  [serviceProducts]: {
+    port: 4001,
+    address: '127.0.0.1',
+    protocol: 'http'
+  },
+  [serviceAuth]: {
+    port: 4002,
+    address: '127.0.0.1',
+    protocol: 'http'
+  }
+};
+const authConfig = {
+  secretKey: 'MICRO_SECRET_AUTH_KEY',
+  accessTokenExp: '10m'
+};
+const whiteRouter = ['/serviceAuth/login'];
+const responseCodeMap = {
+  NO_ACCOUNT: {
+    code: 30001,
+    data: null,
+    message: '用户名或者密码错误'
+  },
+  TOKEN_EXPIRATION: {
+    code: 30002,
+    data: null,
+    message: '访问令牌过期'
+  },
+  TOKEN_ERROR: {
+    code: 30003,
+    data: null,
+    message: '访问令牌无效'
+  },
+  REFRESH_TOKEN_EXPIRATION: {
+    code: 30004,
+    data: null,
+    message: '刷新令牌过期'
+  },
+  REFRESH_TOKEN_ERROR: {
+    code: 30004,
+    data: null,
+    message: '刷新令牌无效'
+  },
+  SUCCESS: {
+    code: 200,
+    message: '操作成功'
+  },
+  ERROR: {
+    code: 9,
+    message: '操作失败'
+  }
+};
 const redisClient = await RedisClient.getInstance().redisClient;
 
 const { destName, outputHome } = clientConfig;
@@ -63,7 +127,7 @@ app.use(async (ctx, next) => {
     } else {
       const accessToken = ctx.request.header.accesstoken;
       // 校验访客令牌
-      jwt.verify(accessToken, secretKey, function (err, result) {
+      jwt.verify(accessToken, secretKey, (err) => {
         if (err) {
           if (err.name === 'TokenExpiredError') {
             // 访客令牌过期

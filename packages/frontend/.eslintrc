@@ -1,0 +1,15 @@
+{
+  "root": true,
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": true
+  },
+  "globals": {
+    "localStorage": true
+  },
+  "extends": [
+    "standard",
+    "plugin:json/recommended",
+    "plugin:prettier/recommended"
+  ]
+}

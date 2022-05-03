@@ -1,9 +1,10 @@
 {
   "name": "@adoc/eslint-config-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "description": "Customize eslint config for vue",
   "homepage": "https://github.com/xianweics/adoc",
+  "license": "MIT",
   "files": [
     "index.js",
     "package.json",
@@ -28,12 +29,7 @@
     "eslint:fix": "pnpm run eslint -- --fix"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-vue": "^8.5.0",
-    "eslint-plugin-n": "^15.2.0",
     "vue-eslint-parser": "^8.3.0"
   }
 }

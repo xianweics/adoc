@@ -3,12 +3,26 @@
   "version": "1.0.0",
   "main": "lib/index.js",
   "module": "index.js",
+  "description": "Extract small methods to reuse",
+  "homepage": "https://github.com/xianweics/adoc",
+  "license": "MIT",
   "files": [
     "lib",
     "package.json",
     "README.md",
     "index.js"
   ],
+  "keywords": [
+    "utils",
+    "tool"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xianweics/adoc.git"
+  },
   "scripts": {
     "dev": "babel index.js -d lib -w",
     "build": "babel index.js -d lib",

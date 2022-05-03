@@ -1,15 +1,19 @@
 import axios from 'axios';
-import { middleware } from '@adoc/helper-config';
 import { formatFullPath } from '@adoc/helper-utils';
+const config = {
+  port: 2000,
+  address: '127.0.0.1',
+  protocol: 'http'
+};
 
 const createRequest = () => {
-  const { protocol, address, port, service } = middleware;
+  const { protocol, address, port } = config;
   const request = axios.create({
     baseURL: formatFullPath({
       protocol,
       address,
       port,
-      subUrl: service.auth
+      subUrl: 'serviceAuth'
     })
     // withCredentials: true
   });

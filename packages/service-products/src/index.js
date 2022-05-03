@@ -1,9 +1,12 @@
 import Koa from 'koa';
 import route from './route/index.js';
-import { service } from '@adoc/helper-config';
 import bodyParser from 'koa-bodyparser';
-
-const { port, address, protocol } = service.serviceProducts;
+const service = {
+  port: 4001,
+  address: '127.0.0.1',
+  protocol: 'http'
+};
+const { port, address, protocol } = service;
 const app = new Koa();
 app.use(bodyParser());
 

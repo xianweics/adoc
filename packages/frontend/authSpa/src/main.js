@@ -45,7 +45,7 @@ Vue.prototype.$error = Modal.error;
 Vue.prototype.$warning = Modal.warning;
 
 Vue.config.productionTip = false;
-Vue.prototype.$http = createRequest(localStorage, 'auth');
+Vue.prototype.$http = createRequest();
 
 const vueLifecycles = singleSpaVue({
   Vue,

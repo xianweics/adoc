@@ -1,22 +1,12 @@
-import mysql from 'mysql';
 import redis from 'redis';
-import { redisConfig } from './config.js';
-
-class PoolCluster {
-  constructor() {
-    this.poolCluster = mysql.createPoolCluster();
-    this._instance = null;
+const redisConfig = {
+  password: 'redis',
+  socket: {
+    port: 6379,
+    host: '127.0.0.1'
   }
-
-  static getInstance() {
-    if (!PoolCluster._instance) {
-      PoolCluster._instance = new PoolCluster();
-    }
-    return PoolCluster._instance;
-  }
-}
-
-class RedisClient {
+};
+export class RedisClient {
   constructor() {
     const client = redis.createClient(redisConfig);
     client.on('ready', () => {
@@ -35,5 +25,3 @@ class RedisClient {
     return RedisClient._instance;
   }
 }
-
-export { PoolCluster, RedisClient };

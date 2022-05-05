@@ -9,9 +9,7 @@ import { formatFullPath, wrapperResponse } from '@adoc/helper-utils';
 import { RedisClient } from './utils';
 
 const clientConfig = {
-  srcName: '',
-  destName: 'clientDist',
-  entryHome: 'index.html',
+  destName: 'dist',
   outputHome: 'index.html'
 };
 const middlewareConfig = {

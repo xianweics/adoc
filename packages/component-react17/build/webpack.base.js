@@ -1,116 +1,21 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { WebpackFilemanager } = require('filemanager-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 const joinProjectRoot = (p = '/') => path.join(__dirname, '..', p);
-
-module.exports = {
+const commonConfig = require('./webpack.common');
+const { merge } = require('webpack-merge');
+const helperWebpackConfig = require('@adoc/helper-wepack-config')({
+  hash: true
+});
+const config = {
   entry: path.join(__dirname, '..', 'src/index.js'),
   output: {
+    clean: true,
     publicPath: '/',
     filename: '[name].[hash:5].js',
     path: joinProjectRoot('dist'),
     chunkFilename: '[name].[chunkhash:5].chunk.js'
   },
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: ['thread-loader', 'babel-loader']
-      },
-      {
-        test: /\.less$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [require('autoprefixer')]
-              }
-            }
-          },
-          'resolve-url-loader',
-          {
-            loader: 'less-loader',
-            options: {
-              sourceMap: true,
-              lessOptions: {
-                javascriptEnabled: true
-              }
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [require('autoprefixer')]
-              }
-            }
-          },
-          'resolve-url-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        type: 'asset',
-        generator: {
-          filename: 'img/[name].[hash:5][ext]'
-        },
-        parser: {
-          dataUrlCondition: {
-            maxSize: 200 * 1024
-          }
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        type: 'asset',
-        generator: {
-          filename: 'fonts/[name].[hash:5][ext]'
-        },
-        parser: {
-          dataUrlCondition: {
-            maxSize: 200 * 1024
-          }
-        }
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['.js', '.json', '.jsx']
-  },
   plugins: [
-    new ESLintPlugin({
-      lintDirtyModulesOnly: false,
-      extensions: ['js', 'json', 'jsx'],
-      context: joinProjectRoot()
-    }),
-    new WebpackFilemanager({
-      events: {
-        start: {
-          del: {
-            items: [joinProjectRoot('dist')]
-          }
-        }
-      }
-    }),
     new HtmlWebpackPlugin({
       template: joinProjectRoot('index.html'),
       favicon: joinProjectRoot('favicon.ico'),
@@ -119,10 +24,7 @@ module.exports = {
       minify: {
         collapseWhitespace: true
       }
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash:5].css',
-      chunkFilename: 'css/[name].[chunkhash:5].css'
     })
   ]
 };
+module.exports = merge(merge(commonConfig, helperWebpackConfig), config);

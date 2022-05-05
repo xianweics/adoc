@@ -6,9 +6,11 @@
   },
   "main": "single.entry.js",
   "scripts": {
-    "dev:start": "webpack-dev-server --config ./build/webpack.dev.js --port 8089",
+    "dev:start": "webpack serve --config ./build/webpack.dev.js --port 8011",
     "build:start": "webpack --config ./build/webpack.build.js",
-    "eslint": "eslint . --ext .js,.jsx,.json",
+    "dev:single": "webpack serve --config ./build/webpack.dev.single.js --port 8001",
+    "build:single": "webpack --config ./build/webpack.build.single.js",
+    "eslint": "eslint . --ext .js,.vue,.json",
     "eslint:fix": "pnpm run eslint -- --fix"
   },
   "dependencies": {
@@ -18,8 +20,9 @@
     "single-spa-react": "^4.6.1"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.16.7",
     "@adoc/eslint-config-react": "^1.0.0",
+    "@adoc/helper-wepack-config": "workspace:^1.0.0",
+    "@babel/preset-react": "^7.16.7",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "compression-webpack-plugin": "^9.2.0",
@@ -29,14 +32,12 @@
     "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
-    "mini-css-extract-plugin": "^2.6.0",
     "postcss": "^8.4.12",
     "postcss-loader": "^6.2.1",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
-    "terser-webpack-plugin": "^5.3.1",
     "thread-loader": "^3.0.4",
     "webpack": "^5.70.0",
     "webpack-bundle-analyzer": "^4.5.0",

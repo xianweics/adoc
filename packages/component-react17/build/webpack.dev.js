@@ -2,7 +2,6 @@ const { merge } = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base');
 
 const config = {
-  port: 8080,
   targetPort: 2000,
   targetAddress: '127.0.0.1',
   isHttps: false
@@ -15,7 +14,6 @@ module.exports = merge(webpackBaseConfig, {
   devServer: {
     historyApiFallback: true,
     https: config.isHttps,
-    port: config.port,
     hot: true,
     open: true,
     proxy: [

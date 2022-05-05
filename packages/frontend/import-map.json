@@ -1,5 +1,0 @@
-{
-  "imports": {
-    "@demo/vue2": "http://localhost:8233/demo.vue2.main.js"
-  }
-}

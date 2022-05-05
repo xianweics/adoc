@@ -1,0 +1,42 @@
+{
+  "name": "@adoc/helper-wepack-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Extract small methods to reuse",
+  "homepage": "https://github.com/xianweics/adoc",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "package.json",
+    "README.md",
+    "rules.js"
+  ],
+  "keywords": [
+    "webpack5",
+    "config"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xianweics/adoc.git"
+  },
+  "devDependencies": {
+    "mini-css-extract-plugin": "^2.6.0"
+  },
+  "peerDependencies": {
+    "webpack": "^5.72.0",
+    "babel-loader": "^8.2.4",
+    "thread-loader": "^3.0.4",
+    "css-loader": "^6.7.1",
+    "postcss-loader": "^6.2.1",
+    "autoprefixer": "^10.4.4",
+    "resolve-url-loader": "^5.0.0",
+    "less-loader": "^10.2.0",
+    "sass-loader": "^12.6.0",
+    "sass": "^1.49.9",
+    "postcss": "^8.4.12",
+    "less": "^4.1.2"
+  }
+}

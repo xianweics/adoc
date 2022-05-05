@@ -6,8 +6,10 @@
   },
   "main": "single.entry.js",
   "scripts": {
-    "dev:start": "webpack-dev-server --config ./build/webpack.dev.js --port 8089",
+    "dev:start": "webpack serve --config ./build/webpack.dev.js --port 8011",
     "build:start": "webpack --config ./build/webpack.build.js",
+    "dev:single": "webpack serve --config ./build/webpack.dev.single.js --port 8003",
+    "build:single": "webpack --config ./build/webpack.build.single.js",
     "eslint": "eslint . --ext .js,.vue,.json",
     "eslint:fix": "pnpm run eslint -- --fix"
   },
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "@adoc/eslint-config-vue": "^1.0.0",
+    "@adoc/helper-wepack-config": "workspace:^1.0.0",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "compression-webpack-plugin": "^9.2.0",

@@ -1,4 +1,3 @@
-const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { merge } = require('webpack-merge');
 const webpackBase = require('./webpack.base');
@@ -8,13 +7,7 @@ const BundleAnalyzerPlugin =
 const config = {
   mode: 'production',
   // devtool: 'source-map',
-  plugins: [new CompressionPlugin()],
-
-  optimization: {
-    runtimeChunk: true,
-    minimize: true,
-    minimizer: [new TerserPlugin()]
-  }
+  plugins: [new CompressionPlugin()]
 };
 if (process.env.analysis) {
   config.plugins.push(

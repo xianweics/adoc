@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>micro-frontend</title>
+    <meta content="<%= htmlWebpackPlugin.options.date %>" />
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@demo/vue2": "http://localhost:8000/demo.vue2.main.js",
+          "@demo/vue2/css": "http://localhost:8000/css/main.css",
+          "@demo/react17": "http://localhost:8001/demo.react17.main.js",
+          "@demo/react17/css": "http://localhost:8001/css/main.css",
+          "@demo/vue3": "http://localhost:8003/demo.vue3.main.js",
+          "@demo/vue3/css": "http://localhost:8003/css/main.css"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <a href="/react17" class="item">React spa</a>
+      <a href="/vue2" class="item">Vue spa</a>
+      <a href="/vue3-auth" class="item">Auth spa</a>
+    </div>
+  </body>
+</html>

@@ -11,10 +11,10 @@ packages/log
 *debug.log
 
 #dist
-clientDist
 packages/*/lib/
 dist
+dist.single
 
 #other
 package-lock.json
-temp
+

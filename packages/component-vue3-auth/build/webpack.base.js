@@ -12,7 +12,7 @@ const config = {
     clean: true,
     publicPath: '/',
     filename: '[name].[hash:5].js',
-    path: path.join(__dirname, '..', 'dist.single'),
+    path: path.join(__dirname, '..', 'dist'),
     chunkFilename: '[name].[chunkhash:5].chunk.js'
   },
   plugins: [

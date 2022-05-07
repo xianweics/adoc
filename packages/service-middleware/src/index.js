@@ -6,7 +6,7 @@ import fs from 'fs';
 import jwt from 'jsonwebtoken';
 
 import { formatFullPath, wrapperResponse } from '@adoc/helper-utils';
-import { RedisClient } from './utils';
+import { RedisClient } from './utils.js';
 
 const clientConfig = {
   destName: 'dist',

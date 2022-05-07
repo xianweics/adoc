@@ -26,7 +26,7 @@
   },
   "scripts": {
     "eslint": "eslint .",
-    "eslint:fix": "pnpm run eslint -- --fix"
+    "eslint:fix": "npm run eslint -- --fix"
   },
   "devDependencies": {
     "eslint-plugin-vue": "^8.5.0",

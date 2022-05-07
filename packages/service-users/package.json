@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "eslint": "eslint . --ext .js,.json",
-    "eslint:fix": "pnpm run eslint -- --fix"
+    "eslint:fix": "npm run eslint -- --fix"
   },
   "dependencies": {
     "@koa/router": "^10.1.1",

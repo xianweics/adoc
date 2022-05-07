@@ -1,6 +1,6 @@
 {
   "name": "adoc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "ISC",
   "homepage": "https://github.com/xianweics/adoc",
   "description": "micro-frontend + middleware + gateway + multi-service",
@@ -13,33 +13,29 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "dev": "pnpm run client:start & pnpm run service:start",
-    "client:start": "pnpm --filter '@adoc/frontend' dev --stream",
-    "service:start": "pnpm --filter '@adoc/service-*' dev --stream",
+    "dev": "pnpm run micro:dev:fe & micro:dev:be",
+    "micro:dev:fe": "pnpm --filter '@adoc/*' --stream micro:dev",
+    "micro:build:fe": "pnpm --filter '@adoc/*' --stream micro:build",
+    "micro:dev:be": "pnpm --filter '@adoc/service-*' dev --stream",
     "eslint": "pnpm --filter '@adoc/*' eslint",
     "eslint:fix": "pnpm --filter '@adoc/*' eslint:fix"
   },
   "devDependencies": {
     "@adoc/helper-utils": "workspace:^1.0.0",
-    "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.8",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
     "@babel/eslint-parser": "^7.17.0",
-    "@babel/node": "^7.16.8",
-    "eslint": "^8.12.0",
+    "@babel/node": "^7.17.10",
+    "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "husky": "^7.0.4",
-    "nodemon": "^2.0.15",
-    "prettier": "^2.6.1"
-  },
-  "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.17.0",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/runtime": "^7.17.9"
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2"
   }
 }

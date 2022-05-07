@@ -1,18 +1,21 @@
 import { registerApplication, start } from 'single-spa';
 import 'systemjs';
-const pathPrefix = (path) => (loc) => loc.pathname.startsWith(path);
+const pathPrefix = (path) => (loc) => {
+  return loc.pathname.startsWith(path);
+};
 
-const insertStyle = (href) => {
+const insertStyle = (src) => {
   const link = document.createElement('link');
-  link.href = href;
+  link.href = window.System.resolve(src);
   link.rel = 'stylesheet';
-  link.id = '@demo/vue2/css';
+  link.id = src;
   document.querySelector('head').appendChild(link);
 };
+
 registerApplication(
   'vue2',
-  async () => {
-    insertStyle(window.System.resolve('@demo/vue2/css'));
+  () => {
+    insertStyle('@demo/vue2/css');
     return window.System.import('@demo/vue2');
   },
   pathPrefix('/vue2')
@@ -20,17 +23,18 @@ registerApplication(
 
 registerApplication(
   'vue3-auth',
-  async () => {
-    insertStyle(window.System.resolve('@demo/vue3/css'));
+  () => {
+    console.info(11);
+    insertStyle('@demo/vue3/css');
     return window.System.import('@demo/vue3');
   },
-  pathPrefix('/vue3-auth')
+  pathPrefix('/vue3')
 );
 
 registerApplication(
   'react17',
-  async () => {
-    insertStyle(window.System.resolve('@demo/react17/css'));
+  () => {
+    insertStyle('@demo/react17/css');
     return window.System.import('@demo/react17');
   },
   pathPrefix('/react17')
@@ -53,4 +57,6 @@ const home = {
 
 registerApplication('home', home, pathPrefix('/'));
 
-start();
+start({
+  urlRerouteOnly: true
+});

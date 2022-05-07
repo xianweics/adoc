@@ -1,6 +1,5 @@
 const { join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { WebpackFilemanager } = require('filemanager-plugin');
 
 module.exports = {
   entry: './index.js',
@@ -17,7 +16,22 @@ module.exports = {
     historyApiFallback: true,
     https: false,
     hot: true,
-    open: true
+    open: true,
+    proxy: [
+      {
+        bypass: (req) => {
+          const trimPaths = ['/vue3'];
+          const item = trimPaths.find((p) => req.url.startsWith(p));
+
+          if (item) {
+            return req.url.replace(
+              new RegExp(`${item}(/.+)`, 'ig'),
+              ($1, $2) => $2
+            );
+          }
+        }
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -27,20 +41,6 @@ module.exports = {
       filename: 'index.html',
       minify: {
         collapseWhitespace: true
-      }
-    }),
-    new WebpackFilemanager({
-      events: {
-        end: {
-          copy: {
-            items: [
-              {
-                source: './import-map.json',
-                destination: './dist'
-              }
-            ]
-          }
-        }
       }
     })
   ]

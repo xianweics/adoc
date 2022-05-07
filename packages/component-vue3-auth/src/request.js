@@ -80,7 +80,7 @@ const createRequest = () => {
             localStorage.clear();
             setTimeout(() => {
               // 刷新令牌过期或者无效，重定向到登陆页面
-              window.location.href = '/auth-spa';
+              window.location.href = '/vue3-auth';
             }, 500);
           } else {
             console.error(msg);

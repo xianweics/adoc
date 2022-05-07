@@ -101,10 +101,18 @@ socket: {
 
 ```
 
+### Start with micro-fe
+
+`npm run micro:dev:fe`
+
+### Start with micro-service
+
+`npm run micro:dev:be`
+
 ### TODOLIST
 
 #### version 1
-- 支持不同版本 vue3/react16?
+~~- 支持不同版本 vue3/react16?~~
 - 阿波罗gateway接入 - 支持Redis权限校验 - graphql
 - docker image 
 - k8s 调用
@@ -147,12 +155,6 @@ socket: {
 - 可添加式的架构
 
 ### 补充
-
-### node
-
-- publish done
-  - eslint-config-vue
-  - eslint-config-react
 
 
 

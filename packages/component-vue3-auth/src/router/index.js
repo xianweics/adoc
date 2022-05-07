@@ -1,4 +1,5 @@
 import HomeView from '../views/HomeView.vue';
+import About from '../views/AboutView.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
@@ -10,12 +11,11 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: About
   }
 ];
 const router = createRouter({
-  history: createWebHistory('auth-spa'),
+  history: createWebHistory('/vue3'),
   routes
 });
 

@@ -11,7 +11,15 @@ const config = {
     hot: true,
     headers: {
       'Access-Control-Allow-Origin': '*'
-    }
+    },
+    proxy: [
+      {
+        context: [],
+        bypass: (req) => {
+          console.info(req.url);
+        }
+      }
+    ]
   }
 };
 

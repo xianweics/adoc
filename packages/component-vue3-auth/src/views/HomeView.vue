@@ -9,10 +9,10 @@
         :label-col="labelCol"
         :wrapper-col="wrapperCol"
       >
-        <a-form-item label="用户名" prop="userName">
+        <a-form-item label="用户名" name="userName">
           <a-input v-model:value="form.userName" />
         </a-form-item>
-        <a-form-item label="密码" prop="password">
+        <a-form-item label="密码" name="password">
           <a-input v-model:value="form.password" />
         </a-form-item>
         <a-form-item :wrapper-col="{ span: 18, offset: 5 }">

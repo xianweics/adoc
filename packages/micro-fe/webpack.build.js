@@ -1,7 +1,7 @@
-const CompressionPlugin = require('compression-webpack-plugin');
 const { join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Webpack = require('webpack');
+
 module.exports = {
   entry: './index.js',
   output: {
@@ -22,7 +22,6 @@ module.exports = {
       minify: {
         collapseWhitespace: true
       }
-    }),
-    new CompressionPlugin()
+    })
   ]
 };

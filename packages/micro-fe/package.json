@@ -1,14 +1,12 @@
 {
-  "name": "entry",
+  "name": "@adoc/micro-fe",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.build.js",
-    "dev": "webpack serve --config webpack.dev.js --port 8009"
+    "micro:dev": "webpack serve --config webpack.dev.js --port 8009",
+    "micro:build": "webpack --config webpack.build.js"
   },
   "keywords": [],
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "single-spa": "^5.9.3",
@@ -16,7 +14,7 @@
   },
   "devDependencies": {
     "html-webpack-plugin": "^5.5.0",
-    "@adoc/helper-wepack-config": "workspace:^1.0.0",
+    "@adoc/helper-wepack-config": "^1.0.0",
     "webpack": "^5.70.0",
     "webpack-merge": "^5.8.0"
   }

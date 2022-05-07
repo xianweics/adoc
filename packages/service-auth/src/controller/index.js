@@ -1,7 +1,7 @@
 import database from '../database/index.js';
 import jwt from 'jsonwebtoken';
 import { wrapperResponse } from '@adoc/helper-utils';
-import { RedisClient } from './utils';
+import { RedisClient } from './utils.js';
 import { redisRefreshTokenEx } from '../redis/config.js';
 const redisClient = await RedisClient.getInstance().redisClient;
 const auth = {

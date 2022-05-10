@@ -3,7 +3,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 const Webpack = require('webpack');
 
-const config = {
+module.exports = {
   module: {
     rules: [
       {
@@ -28,5 +28,3 @@ const config = {
     })
   ]
 };
-
-module.exports = config;

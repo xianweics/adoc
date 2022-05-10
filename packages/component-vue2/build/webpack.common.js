@@ -2,7 +2,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 
-const config = {
+module.exports = {
   module: {
     rules: [
       {
@@ -23,5 +23,3 @@ const config = {
     new VueLoaderPlugin()
   ]
 };
-
-module.exports = config;

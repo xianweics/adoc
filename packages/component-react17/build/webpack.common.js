@@ -1,18 +1,7 @@
 const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 
-const config = {
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        use: ['vue-loader']
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['.js', '.json', '.jsx']
-  },
+module.exports = {
   plugins: [
     new ESLintPlugin({
       lintDirtyModulesOnly: true,
@@ -21,5 +10,3 @@ const config = {
     })
   ]
 };
-
-module.exports = config;

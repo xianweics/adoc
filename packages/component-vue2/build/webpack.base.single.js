@@ -4,7 +4,8 @@ const commonConfig = require('./webpack.common');
 const helperWebpackConfig = require('@adoc/helper-wepack-config')({
   hash: false
 });
-const config = {
+
+module.exports = merge(merge(commonConfig, helperWebpackConfig), {
   entry: path.join(__dirname, '..', 'single.entry.js'),
   output: {
     clean: true,
@@ -13,5 +14,4 @@ const config = {
     libraryTarget: 'umd',
     path: path.join(__dirname, '..', 'dist.single')
   }
-};
-module.exports = merge(merge(commonConfig, helperWebpackConfig), config);
+});

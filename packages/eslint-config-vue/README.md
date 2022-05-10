@@ -15,3 +15,13 @@ or using yarn:
 ``
 yarn add @adoc/eslint-config-vue --dev
 ``
+
+## Usage
+
+`.eslintrc`
+
+```json
+{
+  "extends": ["@adoc/eslint-config-vue"]
+}
+```

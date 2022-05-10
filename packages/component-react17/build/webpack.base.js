@@ -27,4 +27,5 @@ const config = {
     })
   ]
 };
+
 module.exports = merge(merge(commonConfig, helperWebpackConfig), config);

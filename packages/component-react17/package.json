@@ -10,7 +10,7 @@
     "build:start": "webpack --config ./build/webpack.build.js",
     "micro:dev": "webpack serve --config ./build/webpack.dev.single.js --port 8001",
     "micro:build": "webpack --config ./build/webpack.build.single.js",
-    "eslint": "eslint . --ext .js,.vue,.json",
+    "eslint": "eslint . --ext .js,.jsx,.json",
     "eslint:fix": "npm run eslint -- --fix"
   },
   "dependencies": {

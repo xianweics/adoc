@@ -15,3 +15,13 @@ or using yarn:
 ``
 yarn add @adoc/eslint-config-react --dev
 ``
+
+## Usage
+
+`.eslintrc`
+
+```json
+{
+  "extends": ["@adoc/eslint-config-react"]
+}
+```

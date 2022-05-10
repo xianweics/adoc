@@ -1,7 +1,7 @@
 const { merge } = require('webpack-merge');
 const basicConfig = require('./webpack.base.single');
 
-const config = {
+module.exports = merge(basicConfig, {
   mode: 'development',
   devtool: 'eval-cheap-module-source-map',
   cache: true,
@@ -13,6 +13,4 @@ const config = {
       'Access-Control-Allow-Origin': '*'
     }
   }
-};
-
-module.exports = merge(basicConfig, config);
+});

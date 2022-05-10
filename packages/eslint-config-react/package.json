@@ -1,6 +1,6 @@
 {
   "name": "@adoc/eslint-config-react",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "index.js",
   "description": "Customize eslint for react",
   "homepage": "https://github.com/xianweics/adoc",

@@ -2,7 +2,7 @@
   "name": "@adoc/helper-wepack-config",
   "version": "1.0.0",
   "main": "index.js",
-  "description": "Extract small methods to reuse",
+  "description": "Extract small rules & plugins to reuse",
   "homepage": "https://github.com/xianweics/adoc",
   "license": "MIT",
   "files": [

@@ -15,7 +15,7 @@
   "devDependencies": {
     "html-webpack-plugin": "^5.5.0",
     "@adoc/helper-wepack-config": "^1.0.0",
-    "webpack": "^5.70.0",
+    "webpack": "^5.76.0",
     "webpack-merge": "^5.8.0"
   }
 }
